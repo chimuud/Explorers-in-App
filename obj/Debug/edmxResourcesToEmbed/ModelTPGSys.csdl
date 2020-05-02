@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TPGSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AchEntry">
+    <Key>
+      <PropertyRef Name="AchEntryId" />
+    </Key>
+    <Property Name="AchEntryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AchFileId" Type="Int32" Nullable="false" />
+    <Property Name="AchEntryStatusId" Type="Int32" Nullable="false" />
+    <Property Name="LineSequence" Type="Int32" Nullable="false" />
+    <Property Name="StatusDate" Type="DateTime" Precision="3" />
+    <Property Name="SSN" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TransactionCode" Type="Int32" Nullable="false" />
+    <Property Name="ReceivingDFIIdentification" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CheckDigit" Type="Int32" Nullable="false" />
+    <Property Name="DFIAccountNumber" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="IndividualIdentificationNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IndividualName" Type="String" MaxLength="22" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiscretionaryData" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AddendaRecordIndicator" Type="Boolean" Nullable="false" />
+    <Property Name="TraceNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Originator" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EffectiveDate" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FileDate" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SettlementDate" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RawText" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="56" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="56" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="AchFile" Relationship="Self.FK_AchEntry_AchFile" FromRole="AchEntry" ToRole="AchFile" />
+  </EntityType>
+  <EntityType Name="AchFile">
+    <Key>
+      <PropertyRef Name="AchFileId" />
+    </Key>
+    <Property Name="AchFileId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourcePath" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Core" Type="Int32" Nullable="false" />
+    <Property Name="SystemYear" Type="Int32" Nullable="false" />
+    <Property Name="AchFileStatusId" Type="Int32" Nullable="false" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StatusDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="56" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="56" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ACTIVE_MACHINE" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AchEntries" Relationship="Self.FK_AchEntry_AchFile" FromRole="AchFile" ToRole="AchEntry" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Core" Type="Int32" />
+    <Property Name="SystemYear" Type="Int32" />
+    <Property Name="Source" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="CommentKey" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+    <Property Name="RecordNumber" Type="Int32" Nullable="false" />
+    <Property Name="SequenceNumber" Type="Int32" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Tag" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="IntuitId" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="CommentTypeId" Type="Int32" />
+    <Property Name="commentSource" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="CommentText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="lastupdatedatetime" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdateTimeStamp" Type="Int64" />
+    <Property Name="DBCreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DBUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="CTLinking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Transmitter_ID" Type="Int32" />
+    <Property Name="Master_ID" Type="Int32" />
+    <Property Name="CTERO_ID" Type="Int32" />
+    <Property Name="IntuitACKID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="TranUse" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Unused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SystemYearImport" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CTMasterInfo" Relationship="Self.FK_CTEROLINKING_MASTER" FromRole="CTLinking" ToRole="CTMasterInfo" />
+    <NavigationProperty Name="CTTransmitter" Relationship="Self.FK_CTEROLINKING_TRANSMITTER" FromRole="CTLinking" ToRole="CTTransmitter" />
+  </EntityType>
+  <EntityType Name="CTMasterInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasterEFIN" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LastEnrollYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="BusinessModel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FaxPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="OfficePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SFAccountID" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SFLastIncluded" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CTLinkings" Relationship="Self.FK_CTEROLINKING_MASTER" FromRole="CTMasterInfo" ToRole="CTLinking" />
+  </EntityType>
+  <EntityType Name="CTTransmitter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransmitterEFIN" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LastEnrollYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FaxPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="OfficePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CTLinkings" Relationship="Self.FK_CTEROLINKING_TRANSMITTER" FromRole="CTTransmitter" ToRole="CTLinking" />
+  </EntityType>
+  <EntityType Name="ERO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EFIN" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="LatestEnrollYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EIN" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="OwnersSSN" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="OwnersDOB" Type="DateTime" Precision="3" />
+    <Property Name="AvailableforReconsideration" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ProcessInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BeingReviewed" Type="Boolean" />
+    <Property Name="StationID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="SendToRiskInd" Type="Boolean" />
+    <Property Name="UserReviewedInd" Type="Boolean" />
+    <Property Name="Appealed" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="fRiskHitFound" Type="Boolean" />
+    <Property Name="fRiskHitReviewed" Type="Boolean" />
+    <Property Name="ForceOptIn" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NoCheckPrinting" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DoNotCall" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SARNASSummary" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="SARNAPSummary" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="SARCVI" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="sFeeAdvanceReview" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CRMCompanyName" Type="String" MaxLength="35" FixedLength="true" Unicode="false" />
+    <Property Name="CRMPhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ComplianceEmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ComplianceESSInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SiteGroupCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ACHHoldFlag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RejectRecordsInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NoAddressUpdateInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IntuitCAN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="IntuitFirmName" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="SFAccountID" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SFLastIncluded" Type="DateTime" Precision="3" />
+    <Property Name="Reserved" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PromoCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="PNACompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PNAWebURL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="PNAPhone" Type="Decimal" Precision="10" Scale="0" />
+    <Property Name="ShopId" Type="Int64" />
+    <Property Name="RiskLockInd" Type="Boolean" />
+    <Property Name="DisbursementPreferenceId" Type="Int32" />
+    <NavigationProperty Name="EROLinkings" Relationship="Self.FK_EROLINKING_ERO_ID" FromRole="ERO" ToRole="EROLinking" />
+    <NavigationProperty Name="FeeSplits" Relationship="Self.FK_FeeSplit_ERO" FromRole="ERO" ToRole="FeeSplit" />
+  </EntityType>
+  <EntityType Name="EROAccountInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EROLinking_ID" Type="Int32" />
+    <Property Name="SystemYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="NameOnAccount" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="RTN" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="DAN" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="AcctType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="AllowAcctChanges" Type="Boolean" />
+    <Property Name="DisbSum" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AdjSum" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="NumberFunded" Type="Int32" />
+    <Property Name="SPCVolume" Type="Int32" />
+    <Property Name="BPCVolume" Type="Int32" />
+    <Property Name="ACHVolume" Type="Int32" />
+    <Property Name="TPCardVolume" Type="Int32" />
+    <Property Name="InstantCardVolume" Type="Int32" />
+    <Property Name="StateVolume" Type="Int32" />
+    <Property Name="MiscAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MiscAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MiscPercentToCollect" Type="Double" />
+    <Property Name="SoftwareCollectAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SoftwareCollectAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SoftwareCollectPercentToCollect" Type="Double" />
+    <Property Name="FeeAdvanceAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FeeAdvanceAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FeeAdvancePercentToCollect" Type="Double" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TPGCreditDebtAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TPGCreditDebtAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TPGCreditDebtPercentToCollect" Type="Double" />
+    <Property Name="TransmitterDebtAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TransmitterDebtAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TransmitterDebtPercentToCollect" Type="Double" />
+    <Property Name="EroProductProviderID" Type="Int32" />
+    <Property Name="B2BInterestAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="B2BInterestAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="B2BInterestPercentToCollect" Type="Double" />
+    <Property Name="B2BPrincipalAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="B2BPrincipalAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="B2BPrincipalPercentToCollect" Type="Double" />
+    <Property Name="EROPYAdvanceDebtAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="EROPYAdvanceDebtAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="EROPYAdvanceDebtPercentToCollect" Type="Double" />
+    <Property Name="PreseasonAdvanceAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PreseasonAdvanceAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PreseasonAdvanceAmountPercentToCollect" Type="Double" />
+    <Property Name="SPAAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SPAAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SPAAmountPercentToCollect" Type="Double" />
+    <Property Name="TPPreSeasonDebtAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TPPreSeasonDebtAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TPPreSeasonDebtPercentToCollect" Type="Double" />
+    <Property Name="BankChangeInd" Type="Boolean" Nullable="false" />
+    <Property Name="UnfundedTaxpayerCreditDebtAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UnfundedTaxpayerCreditDebtAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UnfundedTaxpayerCreditDebtPercentToCollect" Type="Double" />
+    <Property Name="PreseasonAdvanceCommitmentFeeAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PreseasonAdvanceCommitmentFeeAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PreseasonAdvanceCommitmentFeePercentToCollect" Type="Double" />
+    <Property Name="FeeAdvanceCommitmentFeeAmountToCollect" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FeeAdvanceCommitmentFeeAmountCollected" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FeeAdvanceCommitmentFeePercentToCollect" Type="Double" />
+    <Property Name="EnrollmentEntityId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EROLinking" Relationship="Self.FK_EROACCOUNTINFO_EROLINKING_ID" FromRole="EROAccountInfo" ToRole="EROLinking" />
+  </EntityType>
+  <EntityType Name="EROLinking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Transmitter_ID" Type="Int32" />
+    <Property Name="Master_ID" Type="Int32" />
+    <Property Name="ERO_ID" Type="Int32" />
+    <Property Name="IntuitACKID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="JHOfficeID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="TranUse" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Unused" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SFAccountID" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SFLastIncluded" Type="DateTime" Precision="3" />
+    <Property Name="TransmitterImportDate" Type="DateTime" Precision="3" />
+    <Property Name="SystemYearImport" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="RemoteChkInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="TransmitterImportDate16" Type="DateTime" Precision="3" />
+    <Property Name="SystemYearImport16" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="TransmitterImportDate17" Type="DateTime" Precision="3" />
+    <Property Name="SystemYearImport17" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="TransmitterImportDate18" Type="DateTime" Precision="3" />
+    <Property Name="SystemYearImport18" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="TransmitterImportDate19" Type="DateTime" Precision="3" />
+    <Property Name="SystemYearImport19" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="SubServiceBureauProviderId" Type="Int32" />
+    <Property Name="TransmitterImportDate20" Type="DateTime" Precision="3" />
+    <Property Name="SystemYearImport20" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="ERO" Relationship="Self.FK_EROLINKING_ERO_ID" FromRole="EROLinking" ToRole="ERO" />
+    <NavigationProperty Name="EROAccountInfoes" Relationship="Self.FK_EROACCOUNTINFO_EROLINKING_ID" FromRole="EROLinking" ToRole="EROAccountInfo" />
+    <NavigationProperty Name="MasterInfo" Relationship="Self.FK_EROLINKING_Master_ID" FromRole="EROLinking" ToRole="MasterInfo" />
+    <NavigationProperty Name="FeeAdvances" Relationship="Self.FK_FEEADVANCE_EROLinking_ID" FromRole="EROLinking" ToRole="FeeAdvance" />
+  </EntityType>
+  <EntityType Name="FeeAdvance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EROLinking_ID" Type="Int32" Nullable="false" />
+    <Property Name="ProcessDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdvancingDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GrossFeeAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="NetFeeAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SystemYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="AdvType" Type="Int32" />
+    <NavigationProperty Name="EROLinking" Relationship="Self.FK_FEEADVANCE_EROLinking_ID" FromRole="FeeAdvance" ToRole="EROLinking" />
+    <NavigationProperty Name="FeeAdvanceDetails" Relationship="Self.FK_FeeAdvanceDetail_FeeAdvance_Id" FromRole="FeeAdvance" ToRole="FeeAdvanceDetail" />
+  </EntityType>
+  <EntityType Name="FeeAdvanceDetail">
+    <Key>
+      <PropertyRef Name="FeeAdvanceDetailId" />
+    </Key>
+    <Property Name="FeeAdvanceDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeeAdvanceId" Type="Int32" Nullable="false" />
+    <Property Name="TaxpayerId" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrepFees" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PrepFeesAdvanced" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Lastupdate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="FeeAdvance" Relationship="Self.FK_FeeAdvanceDetail_FeeAdvance_Id" FromRole="FeeAdvanceDetail" ToRole="FeeAdvance" />
+  </EntityType>
+  <EntityType Name="FeeSplit">
+    <Key>
+      <PropertyRef Name="FeeSplitId" />
+    </Key>
+    <Property Name="FeeSplitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasterId" Type="Int32" Nullable="false" />
+    <Property Name="EroId" Type="Int32" />
+    <Property Name="SystemYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SplitType" Type="Int32" Nullable="false" />
+    <Property Name="SplitAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ERO" Relationship="Self.FK_FeeSplit_ERO" FromRole="FeeSplit" ToRole="ERO" />
+    <NavigationProperty Name="MasterInfo" Relationship="Self.FK_FeeSplit_MasterInfo" FromRole="FeeSplit" ToRole="MasterInfo" />
+  </EntityType>
+  <EntityType Name="MasterFeeAdvDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasterId" Type="Int32" />
+    <Property Name="SystemYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CapAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ParticipantStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CutOff" Type="DateTime" Precision="3" />
+    <Property Name="RecordCreate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="ParticipantStatusEarly30" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="MasterInfo" Relationship="Self.FK__MasterFee__Maste__36FC065D" FromRole="MasterFeeAdvDetail" ToRole="MasterInfo" />
+  </EntityType>
+  <EntityType Name="MasterInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasterEFIN" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LastEnrollYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="BusinessModel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ContactFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FaxPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="OfficePhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RecordCreate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SFAccountID" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="SFLastIncluded" Type="DateTime" Precision="3" />
+    <Property Name="Volume" Type="Int32" />
+    <Property Name="Funded" Type="Int32" />
+    <Property Name="TSAInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NoShip" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FeeAdvOptIn" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FeeAdvSpecInd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FeeAdvCap" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FeeAdvOptInDate" Type="DateTime" Precision="3" />
+    <Property Name="FeeAdvOptOutDate" Type="DateTime" Precision="3" />
+    <Property Name="ShopId" Type="Int64" />
+    <NavigationProperty Name="EROLinkings" Relationship="Self.FK_EROLINKING_Master_ID" FromRole="MasterInfo" ToRole="EROLinking" />
+    <NavigationProperty Name="FeeSplits" Relationship="Self.FK_FeeSplit_MasterInfo" FromRole="MasterInfo" ToRole="FeeSplit" />
+    <NavigationProperty Name="MasterFeeAdvDetails" Relationship="Self.FK__MasterFee__Maste__36FC065D" FromRole="MasterInfo" ToRole="MasterFeeAdvDetail" />
+  </EntityType>
+  <EntityType Name="PendingFee">
+    <Key>
+      <PropertyRef Name="PendingFeeId" />
+    </Key>
+    <Property Name="PendingFeeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PendingFeeSourceId" Type="Int64" Nullable="false" />
+    <Property Name="AchEntryId" Type="Int64" Nullable="false" />
+    <Property Name="Sadjkey" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+    <Property Name="Srecnum" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="0" />
+    <Property Name="TraceNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FeeDisbursementInd" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PendingFeeSource" Relationship="Self.FK_PendingFee_PendingFeeSourceId" FromRole="PendingFee" ToRole="PendingFeeSource" />
+  </EntityType>
+  <EntityType Name="PendingFeeDetail">
+    <Key>
+      <PropertyRef Name="PendingFeeDetailId" />
+    </Key>
+    <Property Name="PendingFeeDetailId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PendingFeeId" Type="Int64" Nullable="false" />
+    <Property Name="PendingFeeTypeId" Type="Int32" Nullable="false" />
+    <Property Name="FundingSourceId" Type="Int32" Nullable="false" />
+    <Property Name="FeeAmountPending" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="FeeAmountPaid" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PendingFeeSource">
+    <Key>
+      <PropertyRef Name="PendingFeeSourceId" />
+    </Key>
+    <Property Name="PendingFeeSourceId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SystemYear" Type="Int32" Nullable="false" />
+    <Property Name="Core" Type="Int32" Nullable="false" />
+    <Property Name="ClientId" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TransmitterEfin" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MasterEfin" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="OfficeId" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PendingFees" Relationship="Self.FK_PendingFee_PendingFeeSourceId" FromRole="PendingFeeSource" ToRole="PendingFee" />
+  </EntityType>
+  <EntityType Name="PendingFeeType">
+    <Key>
+      <PropertyRef Name="PendingFeeTypeId" />
+    </Key>
+    <Property Name="PendingFeeTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CoreFeeName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BusinessFeeName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AchEntry_AchFile">
+    <End Role="AchFile" Type="Self.AchFile" Multiplicity="1" />
+    <End Role="AchEntry" Type="Self.AchEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AchFile">
+        <PropertyRef Name="AchFileId" />
+      </Principal>
+      <Dependent Role="AchEntry">
+        <PropertyRef Name="AchFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTEROLINKING_MASTER">
+    <End Role="CTMasterInfo" Type="Self.CTMasterInfo" Multiplicity="0..1" />
+    <End Role="CTLinking" Type="Self.CTLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTMasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CTLinking">
+        <PropertyRef Name="Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTEROLINKING_TRANSMITTER">
+    <End Role="CTTransmitter" Type="Self.CTTransmitter" Multiplicity="0..1" />
+    <End Role="CTLinking" Type="Self.CTLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTTransmitter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CTLinking">
+        <PropertyRef Name="Transmitter_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EROLINKING_ERO_ID">
+    <End Role="ERO" Type="Self.ERO" Multiplicity="0..1" />
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ERO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EROLinking">
+        <PropertyRef Name="ERO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeSplit_ERO">
+    <End Role="ERO" Type="Self.ERO" Multiplicity="0..1" />
+    <End Role="FeeSplit" Type="Self.FeeSplit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ERO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeSplit">
+        <PropertyRef Name="EroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EROACCOUNTINFO_EROLINKING_ID">
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="0..1" />
+    <End Role="EROAccountInfo" Type="Self.EROAccountInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EROLinking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EROAccountInfo">
+        <PropertyRef Name="EROLinking_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EROLINKING_Master_ID">
+    <End Role="MasterInfo" Type="Self.MasterInfo" Multiplicity="0..1" />
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EROLinking">
+        <PropertyRef Name="Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FEEADVANCE_EROLinking_ID">
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="1" />
+    <End Role="FeeAdvance" Type="Self.FeeAdvance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EROLinking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeAdvance">
+        <PropertyRef Name="EROLinking_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeAdvanceDetail_FeeAdvance_Id">
+    <End Role="FeeAdvance" Type="Self.FeeAdvance" Multiplicity="1" />
+    <End Role="FeeAdvanceDetail" Type="Self.FeeAdvanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeeAdvance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeAdvanceDetail">
+        <PropertyRef Name="FeeAdvanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeSplit_MasterInfo">
+    <End Role="MasterInfo" Type="Self.MasterInfo" Multiplicity="1" />
+    <End Role="FeeSplit" Type="Self.FeeSplit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeSplit">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MasterFee__Maste__36FC065D">
+    <End Role="MasterInfo" Type="Self.MasterInfo" Multiplicity="0..1" />
+    <End Role="MasterFeeAdvDetail" Type="Self.MasterFeeAdvDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MasterFeeAdvDetail">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PendingFee_PendingFeeSourceId">
+    <End Role="PendingFeeSource" Type="Self.PendingFeeSource" Multiplicity="1" />
+    <End Role="PendingFee" Type="Self.PendingFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PendingFeeSource">
+        <PropertyRef Name="PendingFeeSourceId" />
+      </Principal>
+      <Dependent Role="PendingFee">
+        <PropertyRef Name="PendingFeeSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TPGSysEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AchEntries" EntityType="Self.AchEntry" />
+    <EntitySet Name="AchFiles" EntityType="Self.AchFile" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="CTLinkings" EntityType="Self.CTLinking" />
+    <EntitySet Name="CTMasterInfoes" EntityType="Self.CTMasterInfo" />
+    <EntitySet Name="CTTransmitters" EntityType="Self.CTTransmitter" />
+    <EntitySet Name="EROes" EntityType="Self.ERO" />
+    <EntitySet Name="EROAccountInfoes" EntityType="Self.EROAccountInfo" />
+    <EntitySet Name="EROLinkings" EntityType="Self.EROLinking" />
+    <EntitySet Name="FeeAdvances" EntityType="Self.FeeAdvance" />
+    <EntitySet Name="FeeAdvanceDetails" EntityType="Self.FeeAdvanceDetail" />
+    <EntitySet Name="FeeSplits" EntityType="Self.FeeSplit" />
+    <EntitySet Name="MasterFeeAdvDetails" EntityType="Self.MasterFeeAdvDetail" />
+    <EntitySet Name="MasterInfoes" EntityType="Self.MasterInfo" />
+    <EntitySet Name="PendingFees" EntityType="Self.PendingFee" />
+    <EntitySet Name="PendingFeeDetails" EntityType="Self.PendingFeeDetail" />
+    <EntitySet Name="PendingFeeSources" EntityType="Self.PendingFeeSource" />
+    <EntitySet Name="PendingFeeTypes" EntityType="Self.PendingFeeType" />
+    <AssociationSet Name="FK_AchEntry_AchFile" Association="Self.FK_AchEntry_AchFile">
+      <End Role="AchFile" EntitySet="AchFiles" />
+      <End Role="AchEntry" EntitySet="AchEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTEROLINKING_MASTER" Association="Self.FK_CTEROLINKING_MASTER">
+      <End Role="CTMasterInfo" EntitySet="CTMasterInfoes" />
+      <End Role="CTLinking" EntitySet="CTLinkings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTEROLINKING_TRANSMITTER" Association="Self.FK_CTEROLINKING_TRANSMITTER">
+      <End Role="CTTransmitter" EntitySet="CTTransmitters" />
+      <End Role="CTLinking" EntitySet="CTLinkings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EROLINKING_ERO_ID" Association="Self.FK_EROLINKING_ERO_ID">
+      <End Role="ERO" EntitySet="EROes" />
+      <End Role="EROLinking" EntitySet="EROLinkings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeSplit_ERO" Association="Self.FK_FeeSplit_ERO">
+      <End Role="ERO" EntitySet="EROes" />
+      <End Role="FeeSplit" EntitySet="FeeSplits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EROACCOUNTINFO_EROLINKING_ID" Association="Self.FK_EROACCOUNTINFO_EROLINKING_ID">
+      <End Role="EROLinking" EntitySet="EROLinkings" />
+      <End Role="EROAccountInfo" EntitySet="EROAccountInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EROLINKING_Master_ID" Association="Self.FK_EROLINKING_Master_ID">
+      <End Role="MasterInfo" EntitySet="MasterInfoes" />
+      <End Role="EROLinking" EntitySet="EROLinkings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FEEADVANCE_EROLinking_ID" Association="Self.FK_FEEADVANCE_EROLinking_ID">
+      <End Role="EROLinking" EntitySet="EROLinkings" />
+      <End Role="FeeAdvance" EntitySet="FeeAdvances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeAdvanceDetail_FeeAdvance_Id" Association="Self.FK_FeeAdvanceDetail_FeeAdvance_Id">
+      <End Role="FeeAdvance" EntitySet="FeeAdvances" />
+      <End Role="FeeAdvanceDetail" EntitySet="FeeAdvanceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeSplit_MasterInfo" Association="Self.FK_FeeSplit_MasterInfo">
+      <End Role="MasterInfo" EntitySet="MasterInfoes" />
+      <End Role="FeeSplit" EntitySet="FeeSplits" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MasterFee__Maste__36FC065D" Association="Self.FK__MasterFee__Maste__36FC065D">
+      <End Role="MasterInfo" EntitySet="MasterInfoes" />
+      <End Role="MasterFeeAdvDetail" EntitySet="MasterFeeAdvDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PendingFee_PendingFeeSourceId" Association="Self.FK_PendingFee_PendingFeeSourceId">
+      <End Role="PendingFeeSource" EntitySet="PendingFeeSources" />
+      <End Role="PendingFee" EntitySet="PendingFees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

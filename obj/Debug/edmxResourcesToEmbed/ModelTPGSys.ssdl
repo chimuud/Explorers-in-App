@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TPGSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AchEntry">
+    <Key>
+      <PropertyRef Name="AchEntryId" />
+    </Key>
+    <Property Name="AchEntryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AchFileId" Type="int" Nullable="false" />
+    <Property Name="AchEntryStatusId" Type="int" Nullable="false" />
+    <Property Name="LineSequence" Type="int" Nullable="false" />
+    <Property Name="StatusDate" Type="datetime" />
+    <Property Name="SSN" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="TransactionCode" Type="int" Nullable="false" />
+    <Property Name="ReceivingDFIIdentification" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="CheckDigit" Type="int" Nullable="false" />
+    <Property Name="DFIAccountNumber" Type="varchar" MaxLength="17" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="IndividualIdentificationNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="IndividualName" Type="varchar" MaxLength="22" Nullable="false" />
+    <Property Name="DiscretionaryData" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="AddendaRecordIndicator" Type="bit" Nullable="false" />
+    <Property Name="TraceNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Originator" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="EffectiveDate" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="FileDate" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SettlementDate" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="ErrorMessage" Type="varchar(max)" />
+    <Property Name="RawText" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="56" Nullable="false" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="56" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AchFile">
+    <Key>
+      <PropertyRef Name="AchFileId" />
+    </Key>
+    <Property Name="AchFileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourcePath" Type="varchar" MaxLength="4096" Nullable="false" />
+    <Property Name="Core" Type="int" Nullable="false" />
+    <Property Name="SystemYear" Type="int" Nullable="false" />
+    <Property Name="AchFileStatusId" Type="int" Nullable="false" />
+    <Property Name="ErrorMessage" Type="varchar(max)" />
+    <Property Name="StatusDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="56" Nullable="false" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="56" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="ACTIVE_MACHINE" Type="varchar" MaxLength="512" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Core" Type="int" />
+    <Property Name="SystemYear" Type="int" />
+    <Property Name="Source" Type="varchar" MaxLength="16" />
+    <Property Name="CommentKey" Type="varchar" MaxLength="23" />
+    <Property Name="RecordNumber" Type="int" Nullable="false" />
+    <Property Name="SequenceNumber" Type="int" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="2" />
+    <Property Name="Tag" Type="varchar" MaxLength="5" />
+    <Property Name="IntuitId" Type="varchar" MaxLength="6" />
+    <Property Name="CommentTypeId" Type="int" />
+    <Property Name="commentSource" Type="varchar" MaxLength="16" />
+    <Property Name="CommentText" Type="varchar(max)" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CTLinking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Transmitter_ID" Type="int" />
+    <Property Name="Master_ID" Type="int" />
+    <Property Name="CTERO_ID" Type="int" />
+    <Property Name="IntuitACKID" Type="varchar" MaxLength="6" />
+    <Property Name="OfficeID" Type="char" MaxLength="5" />
+    <Property Name="TranUse" Type="varchar" MaxLength="30" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="Unused" Type="char" MaxLength="1" />
+    <Property Name="SystemYearImport" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="CTMasterInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterEFIN" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="LastEnrollYear" Type="char" MaxLength="4" />
+    <Property Name="BusinessModel" Type="char" MaxLength="1" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="ContactFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactLastName" Type="varchar" MaxLength="50" />
+    <Property Name="FaxPhone" Type="varchar" MaxLength="10" />
+    <Property Name="OfficePhone" Type="varchar" MaxLength="10" />
+    <Property Name="Website" Type="varchar(max)" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="SFAccountID" Type="varchar" MaxLength="18" />
+    <Property Name="SFLastIncluded" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CTTransmitter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransmitterEFIN" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="LastEnrollYear" Type="char" MaxLength="4" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="ContactFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactLastName" Type="varchar" MaxLength="50" />
+    <Property Name="FaxPhone" Type="varchar" MaxLength="10" />
+    <Property Name="OfficePhone" Type="varchar" MaxLength="10" />
+    <Property Name="Website" Type="varchar(max)" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ERO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EFIN" Type="char" MaxLength="6" />
+    <Property Name="LatestEnrollYear" Type="char" MaxLength="4" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="EIN" Type="char" MaxLength="9" />
+    <Property Name="OwnersSSN" Type="char" MaxLength="9" />
+    <Property Name="OwnersDOB" Type="datetime" />
+    <Property Name="AvailableforReconsideration" Type="char" MaxLength="1" />
+    <Property Name="ProcessInd" Type="char" MaxLength="1" />
+    <Property Name="BeingReviewed" Type="bit" />
+    <Property Name="StationID" Type="char" MaxLength="2" />
+    <Property Name="SendToRiskInd" Type="bit" />
+    <Property Name="UserReviewedInd" Type="bit" />
+    <Property Name="Appealed" Type="char" MaxLength="1" />
+    <Property Name="fRiskHitFound" Type="bit" />
+    <Property Name="fRiskHitReviewed" Type="bit" />
+    <Property Name="ForceOptIn" Type="char" MaxLength="1" />
+    <Property Name="NoCheckPrinting" Type="char" MaxLength="1" />
+    <Property Name="DoNotCall" Type="char" MaxLength="1" />
+    <Property Name="SARNASSummary" Type="char" MaxLength="2" />
+    <Property Name="SARNAPSummary" Type="char" MaxLength="2" />
+    <Property Name="SARCVI" Type="char" MaxLength="2" />
+    <Property Name="sFeeAdvanceReview" Type="char" MaxLength="1" />
+    <Property Name="CRMCompanyName" Type="char" MaxLength="35" />
+    <Property Name="CRMPhoneNumber" Type="char" MaxLength="10" />
+    <Property Name="ComplianceEmailAddress" Type="varchar" MaxLength="50" />
+    <Property Name="ComplianceESSInd" Type="char" MaxLength="1" />
+    <Property Name="SiteGroupCode" Type="varchar" MaxLength="50" />
+    <Property Name="ACHHoldFlag" Type="char" MaxLength="1" />
+    <Property Name="RejectRecordsInd" Type="char" MaxLength="1" />
+    <Property Name="NoAddressUpdateInd" Type="char" MaxLength="1" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="IntuitCAN" Type="varchar" MaxLength="12" />
+    <Property Name="IntuitFirmName" Type="varchar" MaxLength="35" />
+    <Property Name="SFAccountID" Type="varchar" MaxLength="18" />
+    <Property Name="SFLastIncluded" Type="datetime" />
+    <Property Name="Reserved" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PromoCode" Type="varchar" MaxLength="8" />
+    <Property Name="PNACompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="PNAWebURL" Type="varchar" MaxLength="256" />
+    <Property Name="PNAPhone" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="ShopId" Type="bigint" />
+    <Property Name="RiskLockInd" Type="bit" />
+    <Property Name="DisbursementPreferenceId" Type="int" />
+  </EntityType>
+  <EntityType Name="EROAccountInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EROLinking_ID" Type="int" />
+    <Property Name="SystemYear" Type="char" MaxLength="4" />
+    <Property Name="BankName" Type="varchar" MaxLength="35" />
+    <Property Name="NameOnAccount" Type="varchar" MaxLength="35" />
+    <Property Name="RTN" Type="char" MaxLength="9" />
+    <Property Name="DAN" Type="varchar" MaxLength="17" />
+    <Property Name="AcctType" Type="char" MaxLength="1" />
+    <Property Name="AllowAcctChanges" Type="bit" />
+    <Property Name="DisbSum" Type="money" />
+    <Property Name="AdjSum" Type="money" />
+    <Property Name="Volume" Type="int" />
+    <Property Name="NumberFunded" Type="int" />
+    <Property Name="SPCVolume" Type="int" />
+    <Property Name="BPCVolume" Type="int" />
+    <Property Name="ACHVolume" Type="int" />
+    <Property Name="TPCardVolume" Type="int" />
+    <Property Name="InstantCardVolume" Type="int" />
+    <Property Name="StateVolume" Type="int" />
+    <Property Name="MiscAmountToCollect" Type="money" />
+    <Property Name="MiscAmountCollected" Type="money" />
+    <Property Name="MiscPercentToCollect" Type="float" />
+    <Property Name="SoftwareCollectAmountToCollect" Type="money" />
+    <Property Name="SoftwareCollectAmountCollected" Type="money" />
+    <Property Name="SoftwareCollectPercentToCollect" Type="float" />
+    <Property Name="FeeAdvanceAmountToCollect" Type="money" />
+    <Property Name="FeeAdvanceAmountCollected" Type="money" />
+    <Property Name="FeeAdvancePercentToCollect" Type="float" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="TPGCreditDebtAmountToCollect" Type="money" />
+    <Property Name="TPGCreditDebtAmountCollected" Type="money" />
+    <Property Name="TPGCreditDebtPercentToCollect" Type="float" />
+    <Property Name="TransmitterDebtAmountToCollect" Type="money" />
+    <Property Name="TransmitterDebtAmountCollected" Type="money" />
+    <Property Name="TransmitterDebtPercentToCollect" Type="float" />
+    <Property Name="EroProductProviderID" Type="int" />
+    <Property Name="B2BInterestAmountToCollect" Type="money" />
+    <Property Name="B2BInterestAmountCollected" Type="money" />
+    <Property Name="B2BInterestPercentToCollect" Type="float" />
+    <Property Name="B2BPrincipalAmountToCollect" Type="money" />
+    <Property Name="B2BPrincipalAmountCollected" Type="money" />
+    <Property Name="B2BPrincipalPercentToCollect" Type="float" />
+    <Property Name="EROPYAdvanceDebtAmountToCollect" Type="money" />
+    <Property Name="EROPYAdvanceDebtAmountCollected" Type="money" />
+    <Property Name="EROPYAdvanceDebtPercentToCollect" Type="float" />
+    <Property Name="PreseasonAdvanceAmountToCollect" Type="money" />
+    <Property Name="PreseasonAdvanceAmountCollected" Type="money" />
+    <Property Name="PreseasonAdvanceAmountPercentToCollect" Type="float" />
+    <Property Name="SPAAmountToCollect" Type="money" />
+    <Property Name="SPAAmountCollected" Type="money" />
+    <Property Name="SPAAmountPercentToCollect" Type="float" />
+    <Property Name="TPPreSeasonDebtAmountToCollect" Type="money" />
+    <Property Name="TPPreSeasonDebtAmountCollected" Type="money" />
+    <Property Name="TPPreSeasonDebtPercentToCollect" Type="float" />
+    <Property Name="BankChangeInd" Type="bit" Nullable="false" />
+    <Property Name="UnfundedTaxpayerCreditDebtAmountToCollect" Type="money" />
+    <Property Name="UnfundedTaxpayerCreditDebtAmountCollected" Type="money" />
+    <Property Name="UnfundedTaxpayerCreditDebtPercentToCollect" Type="float" />
+    <Property Name="PreseasonAdvanceCommitmentFeeAmountToCollect" Type="money" />
+    <Property Name="PreseasonAdvanceCommitmentFeeAmountCollected" Type="money" />
+    <Property Name="PreseasonAdvanceCommitmentFeePercentToCollect" Type="float" />
+    <Property Name="FeeAdvanceCommitmentFeeAmountToCollect" Type="money" />
+    <Property Name="FeeAdvanceCommitmentFeeAmountCollected" Type="money" />
+    <Property Name="FeeAdvanceCommitmentFeePercentToCollect" Type="float" />
+    <Property Name="EnrollmentEntityId" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="EROLinking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Transmitter_ID" Type="int" />
+    <Property Name="Master_ID" Type="int" />
+    <Property Name="ERO_ID" Type="int" />
+    <Property Name="IntuitACKID" Type="varchar" MaxLength="6" />
+    <Property Name="JHOfficeID" Type="char" MaxLength="5" />
+    <Property Name="TranUse" Type="varchar" MaxLength="30" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="Unused" Type="char" MaxLength="1" />
+    <Property Name="SFAccountID" Type="varchar" MaxLength="18" />
+    <Property Name="SFLastIncluded" Type="datetime" />
+    <Property Name="TransmitterImportDate" Type="datetime" />
+    <Property Name="SystemYearImport" Type="char" MaxLength="4" />
+    <Property Name="RemoteChkInd" Type="char" MaxLength="1" />
+    <Property Name="TransmitterImportDate16" Type="datetime" />
+    <Property Name="SystemYearImport16" Type="char" MaxLength="4" />
+    <Property Name="TransmitterImportDate17" Type="datetime" />
+    <Property Name="SystemYearImport17" Type="char" MaxLength="4" />
+    <Property Name="TransmitterImportDate18" Type="datetime" />
+    <Property Name="SystemYearImport18" Type="char" MaxLength="4" />
+    <Property Name="TransmitterImportDate19" Type="datetime" />
+    <Property Name="SystemYearImport19" Type="char" MaxLength="4" />
+    <Property Name="SubServiceBureauProviderId" Type="int" />
+    <Property Name="TransmitterImportDate20" Type="datetime" />
+    <Property Name="SystemYearImport20" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="FeeAdvance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EROLinking_ID" Type="int" Nullable="false" />
+    <Property Name="ProcessDate" Type="datetime" Nullable="false" />
+    <Property Name="AdvancingDate" Type="datetime" Nullable="false" />
+    <Property Name="GrossFeeAmount" Type="money" Nullable="false" />
+    <Property Name="NetFeeAmount" Type="money" Nullable="false" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="SystemYear" Type="char" MaxLength="4" />
+    <Property Name="AdvType" Type="int" />
+  </EntityType>
+  <EntityType Name="FeeAdvanceDetail">
+    <Key>
+      <PropertyRef Name="FeeAdvanceDetailId" />
+    </Key>
+    <Property Name="FeeAdvanceDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FeeAdvanceId" Type="int" Nullable="false" />
+    <Property Name="TaxpayerId" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="PrepFees" Type="money" Nullable="false" />
+    <Property Name="PrepFeesAdvanced" Type="money" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Lastupdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeeSplit">
+    <Key>
+      <PropertyRef Name="FeeSplitId" />
+    </Key>
+    <Property Name="FeeSplitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterId" Type="int" Nullable="false" />
+    <Property Name="EroId" Type="int" />
+    <Property Name="SystemYear" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="SplitType" Type="int" Nullable="false" />
+    <Property Name="SplitAmount" Type="money" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MasterFeeAdvDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterId" Type="int" />
+    <Property Name="SystemYear" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="CapAmount" Type="money" />
+    <Property Name="ParticipantStatus" Type="char" MaxLength="1" />
+    <Property Name="CutOff" Type="datetime" />
+    <Property Name="RecordCreate" Type="datetime" />
+    <Property Name="LastUpdate" Type="datetime" />
+    <Property Name="ParticipantStatusEarly30" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="MasterInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterEFIN" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="LastEnrollYear" Type="char" MaxLength="4" />
+    <Property Name="BusinessModel" Type="char" MaxLength="1" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="ContactFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactLastName" Type="varchar" MaxLength="50" />
+    <Property Name="FaxPhone" Type="varchar" MaxLength="10" />
+    <Property Name="OfficePhone" Type="varchar" MaxLength="10" />
+    <Property Name="Website" Type="varchar(max)" />
+    <Property Name="RecordCreate" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+    <Property Name="SFAccountID" Type="varchar" MaxLength="18" />
+    <Property Name="SFLastIncluded" Type="datetime" />
+    <Property Name="Volume" Type="int" />
+    <Property Name="Funded" Type="int" />
+    <Property Name="TSAInd" Type="char" MaxLength="1" />
+    <Property Name="NoShip" Type="char" MaxLength="1" />
+    <Property Name="FeeAdvOptIn" Type="char" MaxLength="1" />
+    <Property Name="FeeAdvSpecInd" Type="char" MaxLength="1" />
+    <Property Name="FeeAdvCap" Type="money" />
+    <Property Name="FeeAdvOptInDate" Type="datetime" />
+    <Property Name="FeeAdvOptOutDate" Type="datetime" />
+    <Property Name="ShopId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="PendingFee">
+    <Key>
+      <PropertyRef Name="PendingFeeId" />
+    </Key>
+    <Property Name="PendingFeeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PendingFeeSourceId" Type="bigint" Nullable="false" />
+    <Property Name="AchEntryId" Type="bigint" Nullable="false" />
+    <Property Name="Sadjkey" Type="varchar" MaxLength="23" />
+    <Property Name="Srecnum" Type="varchar" MaxLength="3" />
+    <Property Name="EffectiveDate" Type="date" />
+    <Property Name="TraceNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="FeeDisbursementInd" Type="bit" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="55" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PendingFeeDetail">
+    <Key>
+      <PropertyRef Name="PendingFeeDetailId" />
+    </Key>
+    <Property Name="PendingFeeDetailId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PendingFeeId" Type="bigint" Nullable="false" />
+    <Property Name="PendingFeeTypeId" Type="int" Nullable="false" />
+    <Property Name="FundingSourceId" Type="int" Nullable="false" />
+    <Property Name="FeeAmountPending" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="FeeAmountPaid" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="55" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PendingFeeSource">
+    <Key>
+      <PropertyRef Name="PendingFeeSourceId" />
+    </Key>
+    <Property Name="PendingFeeSourceId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SystemYear" Type="int" Nullable="false" />
+    <Property Name="Core" Type="int" Nullable="false" />
+    <Property Name="ClientId" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="TransmitterEfin" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="MasterEfin" Type="varchar" MaxLength="6" />
+    <Property Name="OfficeId" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="55" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PendingFeeType">
+    <Key>
+      <PropertyRef Name="PendingFeeTypeId" />
+    </Key>
+    <Property Name="PendingFeeTypeId" Type="int" Nullable="false" />
+    <Property Name="CoreFeeName" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="BusinessFeeName" Type="varchar" MaxLength="55" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="55" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__MasterFee__Maste__36FC065D">
+    <End Role="MasterInfo" Type="Self.MasterInfo" Multiplicity="0..1" />
+    <End Role="MasterFeeAdvDetail" Type="Self.MasterFeeAdvDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MasterFeeAdvDetail">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AchEntry_AchFile">
+    <End Role="AchFile" Type="Self.AchFile" Multiplicity="1" />
+    <End Role="AchEntry" Type="Self.AchEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AchFile">
+        <PropertyRef Name="AchFileId" />
+      </Principal>
+      <Dependent Role="AchEntry">
+        <PropertyRef Name="AchFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTEROLINKING_MASTER">
+    <End Role="CTMasterInfo" Type="Self.CTMasterInfo" Multiplicity="0..1" />
+    <End Role="CTLinking" Type="Self.CTLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTMasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CTLinking">
+        <PropertyRef Name="Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTEROLINKING_TRANSMITTER">
+    <End Role="CTTransmitter" Type="Self.CTTransmitter" Multiplicity="0..1" />
+    <End Role="CTLinking" Type="Self.CTLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CTTransmitter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CTLinking">
+        <PropertyRef Name="Transmitter_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EROACCOUNTINFO_EROLINKING_ID">
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="0..1" />
+    <End Role="EROAccountInfo" Type="Self.EROAccountInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EROLinking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EROAccountInfo">
+        <PropertyRef Name="EROLinking_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EROLINKING_ERO_ID">
+    <End Role="ERO" Type="Self.ERO" Multiplicity="0..1" />
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ERO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EROLinking">
+        <PropertyRef Name="ERO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EROLINKING_Master_ID">
+    <End Role="MasterInfo" Type="Self.MasterInfo" Multiplicity="0..1" />
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EROLinking">
+        <PropertyRef Name="Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FEEADVANCE_EROLinking_ID">
+    <End Role="EROLinking" Type="Self.EROLinking" Multiplicity="1" />
+    <End Role="FeeAdvance" Type="Self.FeeAdvance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EROLinking">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeAdvance">
+        <PropertyRef Name="EROLinking_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeAdvanceDetail_FeeAdvance_Id">
+    <End Role="FeeAdvance" Type="Self.FeeAdvance" Multiplicity="1" />
+    <End Role="FeeAdvanceDetail" Type="Self.FeeAdvanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FeeAdvance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeAdvanceDetail">
+        <PropertyRef Name="FeeAdvanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeSplit_ERO">
+    <End Role="ERO" Type="Self.ERO" Multiplicity="0..1" />
+    <End Role="FeeSplit" Type="Self.FeeSplit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ERO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeSplit">
+        <PropertyRef Name="EroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FeeSplit_MasterInfo">
+    <End Role="MasterInfo" Type="Self.MasterInfo" Multiplicity="1" />
+    <End Role="FeeSplit" Type="Self.FeeSplit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MasterInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FeeSplit">
+        <PropertyRef Name="MasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PendingFee_PendingFeeSourceId">
+    <End Role="PendingFeeSource" Type="Self.PendingFeeSource" Multiplicity="1" />
+    <End Role="PendingFee" Type="Self.PendingFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PendingFeeSource">
+        <PropertyRef Name="PendingFeeSourceId" />
+      </Principal>
+      <Dependent Role="PendingFee">
+        <PropertyRef Name="PendingFeeSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TPGSysModelStoreContainer">
+    <EntitySet Name="AchEntry" EntityType="Self.AchEntry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AchFile" EntityType="Self.AchFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTLinking" EntityType="Self.CTLinking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTMasterInfo" EntityType="Self.CTMasterInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTTransmitter" EntityType="Self.CTTransmitter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ERO" EntityType="Self.ERO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EROAccountInfo" EntityType="Self.EROAccountInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EROLinking" EntityType="Self.EROLinking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeAdvance" EntityType="Self.FeeAdvance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeAdvanceDetail" EntityType="Self.FeeAdvanceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeSplit" EntityType="Self.FeeSplit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterFeeAdvDetail" EntityType="Self.MasterFeeAdvDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterInfo" EntityType="Self.MasterInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PendingFee" EntityType="Self.PendingFee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PendingFeeDetail" EntityType="Self.PendingFeeDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PendingFeeSource" EntityType="Self.PendingFeeSource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PendingFeeType" EntityType="Self.PendingFeeType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__MasterFee__Maste__36FC065D" Association="Self.FK__MasterFee__Maste__36FC065D">
+      <End Role="MasterInfo" EntitySet="MasterInfo" />
+      <End Role="MasterFeeAdvDetail" EntitySet="MasterFeeAdvDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AchEntry_AchFile" Association="Self.FK_AchEntry_AchFile">
+      <End Role="AchFile" EntitySet="AchFile" />
+      <End Role="AchEntry" EntitySet="AchEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTEROLINKING_MASTER" Association="Self.FK_CTEROLINKING_MASTER">
+      <End Role="CTMasterInfo" EntitySet="CTMasterInfo" />
+      <End Role="CTLinking" EntitySet="CTLinking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTEROLINKING_TRANSMITTER" Association="Self.FK_CTEROLINKING_TRANSMITTER">
+      <End Role="CTTransmitter" EntitySet="CTTransmitter" />
+      <End Role="CTLinking" EntitySet="CTLinking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EROACCOUNTINFO_EROLINKING_ID" Association="Self.FK_EROACCOUNTINFO_EROLINKING_ID">
+      <End Role="EROLinking" EntitySet="EROLinking" />
+      <End Role="EROAccountInfo" EntitySet="EROAccountInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EROLINKING_ERO_ID" Association="Self.FK_EROLINKING_ERO_ID">
+      <End Role="ERO" EntitySet="ERO" />
+      <End Role="EROLinking" EntitySet="EROLinking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EROLINKING_Master_ID" Association="Self.FK_EROLINKING_Master_ID">
+      <End Role="MasterInfo" EntitySet="MasterInfo" />
+      <End Role="EROLinking" EntitySet="EROLinking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FEEADVANCE_EROLinking_ID" Association="Self.FK_FEEADVANCE_EROLinking_ID">
+      <End Role="EROLinking" EntitySet="EROLinking" />
+      <End Role="FeeAdvance" EntitySet="FeeAdvance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeAdvanceDetail_FeeAdvance_Id" Association="Self.FK_FeeAdvanceDetail_FeeAdvance_Id">
+      <End Role="FeeAdvance" EntitySet="FeeAdvance" />
+      <End Role="FeeAdvanceDetail" EntitySet="FeeAdvanceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeSplit_ERO" Association="Self.FK_FeeSplit_ERO">
+      <End Role="ERO" EntitySet="ERO" />
+      <End Role="FeeSplit" EntitySet="FeeSplit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FeeSplit_MasterInfo" Association="Self.FK_FeeSplit_MasterInfo">
+      <End Role="MasterInfo" EntitySet="MasterInfo" />
+      <End Role="FeeSplit" EntitySet="FeeSplit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PendingFee_PendingFeeSourceId" Association="Self.FK_PendingFee_PendingFeeSourceId">
+      <End Role="PendingFeeSource" EntitySet="PendingFeeSource" />
+      <End Role="PendingFee" EntitySet="PendingFee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

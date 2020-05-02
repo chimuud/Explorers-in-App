@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CORE_COPYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADJ">
+    <Key>
+      <PropertyRef Name="ADJ_ID" />
+    </Key>
+    <Property Name="ADJ_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CORE" Type="int" />
+    <Property Name="SYSTEM_YEAR" Type="int" />
+    <Property Name="sadjkey" Type="varchar" MaxLength="23" />
+    <Property Name="srecnum" Type="varchar" MaxLength="3" />
+    <Property Name="sadjtype" Type="varchar" MaxLength="1" />
+    <Property Name="spriortype" Type="varchar" MaxLength="1" />
+    <Property Name="radjamt" Type="float" />
+    <Property Name="sadjdate" Type="varchar" MaxLength="8" />
+    <Property Name="sstopdate" Type="varchar" MaxLength="8" />
+    <Property Name="sadjnum" Type="varchar" MaxLength="8" />
+    <Property Name="arrkeylen0" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen1" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen2" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen3" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen4" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen5" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen6" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen7" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen8" Type="varchar" MaxLength="25" />
+    <Property Name="arrkeylen9" Type="varchar" MaxLength="25" />
+    <Property Name="ffms" Type="bit" />
+    <Property Name="fweeklycycle" Type="bit" />
+    <Property Name="rowedconduit" Type="float" />
+    <Property Name="sadjtime" Type="varchar" MaxLength="6" />
+    <Property Name="sstoptime" Type="varchar" MaxLength="6" />
+    <Property Name="manualforATMcards" Type="varchar" MaxLength="1" />
+    <Property Name="semailkey" Type="varchar" MaxLength="3" />
+    <Property Name="sstate" Type="varchar" MaxLength="2" />
+    <Property Name="ccpaymentind" Type="varchar" MaxLength="1" />
+    <Property Name="sfeeadjind" Type="varchar" MaxLength="1" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="sweeklycycledate" Type="varchar" MaxLength="8" />
+    <Property Name="sweeklycycletime" Type="varchar" MaxLength="6" />
+    <Property Name="sACHDebitInd" Type="varchar" MaxLength="1" />
+    <Property Name="sClosedLoanInd" Type="varchar" MaxLength="1" />
+    <Property Name="sIntuitAckID" Type="varchar" MaxLength="6" />
+    <Property Name="SIMMind" Type="varchar" MaxLength="1" />
+    <Property Name="sForcedAdjInd" Type="varchar" MaxLength="1" />
+    <Property Name="sTraceNumber" Type="varchar" MaxLength="15" />
+    <Property Name="sEffectiveDate" Type="varchar" MaxLength="8" />
+    <Property Name="sFileDate" Type="varchar" MaxLength="8" />
+    <Property Name="sTransmitterEFIN" Type="varchar" MaxLength="6" />
+    <Property Name="adjrecsent" Type="varchar" MaxLength="1" />
+    <Property Name="sCashMgmtInd" Type="varchar" MaxLength="1" />
+    <Property Name="sFeePayTransactID" Type="varchar" MaxLength="10" />
+    <Property Name="fJHEarlyFunding" Type="bit" />
+    <Property Name="sSettlementDate" Type="varchar" MaxLength="8" />
+    <Property Name="filler" Type="varchar" MaxLength="25" />
+    <Property Name="RecordHash" Type="varchar" MaxLength="256" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" Nullable="false" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CORE_COPY.dbo.COM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="COM">
+    <Key>
+      <PropertyRef Name="COM_ID" />
+      <PropertyRef Name="LastUpdateTimeStamp" />
+      <PropertyRef Name="DBCreateDate" />
+      <PropertyRef Name="DBUpdateDate" />
+    </Key>
+    <Property Name="COM_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CORE" Type="int" />
+    <Property Name="SystemYear" Type="int" />
+    <Property Name="Source" Type="varchar" MaxLength="16" />
+    <Property Name="scomkey" Type="varchar" MaxLength="23" />
+    <Property Name="srecnum" Type="varchar" MaxLength="3" />
+    <Property Name="sseqnum" Type="varchar" MaxLength="3" />
+    <Property Name="sdept" Type="varchar" MaxLength="2" />
+    <Property Name="sTag" Type="varchar" MaxLength="5" />
+    <Property Name="sintuitid" Type="varchar" MaxLength="6" />
+    <Property Name="comment" Type="varchar" MaxLength="2048" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" Nullable="false" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CORE_COPY.dbo.Comment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+      <PropertyRef Name="RecordNumber" />
+      <PropertyRef Name="SequenceNumber" />
+      <PropertyRef Name="DBCreateDate" />
+      <PropertyRef Name="DBUpdateDate" />
+    </Key>
+    <Property Name="CommentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Core" Type="int" />
+    <Property Name="SystemYear" Type="int" />
+    <Property Name="Source" Type="varchar" MaxLength="16" />
+    <Property Name="CommentKey" Type="varchar" MaxLength="23" />
+    <Property Name="RecordNumber" Type="int" Nullable="false" />
+    <Property Name="SequenceNumber" Type="int" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="2" />
+    <Property Name="Tag" Type="varchar" MaxLength="5" />
+    <Property Name="IntuitId" Type="varchar" MaxLength="6" />
+    <Property Name="CommentTypeId" Type="int" />
+    <Property Name="commentSource" Type="varchar" MaxLength="16" />
+    <Property Name="CommentText" Type="varchar(max)" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DISB">
+    <Key>
+      <PropertyRef Name="DISB_ID" />
+    </Key>
+    <Property Name="DISB_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CORE" Type="int" />
+    <Property Name="SYSTEM_YEAR" Type="int" />
+    <Property Name="sdisbkey" Type="varchar" MaxLength="23" />
+    <Property Name="srecnum" Type="varchar" MaxLength="3" />
+    <Property Name="sdisbtype" Type="varchar" MaxLength="1" />
+    <Property Name="spriortype" Type="varchar" MaxLength="1" />
+    <Property Name="rdisbamt" Type="float" />
+    <Property Name="swaitdate" Type="varchar" MaxLength="8" />
+    <Property Name="sdisbdate" Type="varchar" MaxLength="8" />
+    <Property Name="scleardate" Type="varchar" MaxLength="8" />
+    <Property Name="sstopdate" Type="varchar" MaxLength="8" />
+    <Property Name="schecknum" Type="varchar" MaxLength="8" />
+    <Property Name="sverified" Type="varchar" MaxLength="8" />
+    <Property Name="sdisbnum" Type="varchar" MaxLength="8" />
+    <Property Name="arrkeylen" Type="varchar" MaxLength="10" />
+    <Property Name="rtn" Type="varchar" MaxLength="9" />
+    <Property Name="dan" Type="varchar" MaxLength="17" />
+    <Property Name="accttype" Type="varchar" MaxLength="1" />
+    <Property Name="soldchecknum" Type="varchar" MaxLength="8" />
+    <Property Name="fprepfeediscl" Type="bit" />
+    <Property Name="spriordebtflag" Type="varchar" MaxLength="1" />
+    <Property Name="sdebtbankcode" Type="varchar" MaxLength="1" />
+    <Property Name="fralrtfeediscl" Type="bit" />
+    <Property Name="fstatefeediscl" Type="bit" />
+    <Property Name="fCCdebtdiscl" Type="bit" />
+    <Property Name="firsfundeddiscl" Type="bit" />
+    <Property Name="fstatefundeddiscl" Type="bit" />
+    <Property Name="freprintflag" Type="bit" />
+    <Property Name="sadjflag" Type="varchar" MaxLength="1" />
+    <Property Name="scashmachineflag" Type="varchar" MaxLength="1" />
+    <Property Name="fweeklycycle" Type="bit" />
+    <Property Name="termid" Type="varchar" MaxLength="8" />
+    <Property Name="cwauthnum" Type="varchar" MaxLength="8" />
+    <Property Name="recordcreatetime" Type="varchar" MaxLength="6" />
+    <Property Name="specialdisbflag" Type="varchar" MaxLength="1" />
+    <Property Name="swaittime" Type="varchar" MaxLength="6" />
+    <Property Name="sdisbtime" Type="varchar" MaxLength="6" />
+    <Property Name="sstoptime" Type="varchar" MaxLength="6" />
+    <Property Name="scleartime" Type="varchar" MaxLength="6" />
+    <Property Name="sreleasedate" Type="varchar" MaxLength="8" />
+    <Property Name="sweeklycycledate" Type="varchar" MaxLength="8" />
+    <Property Name="sweeklycycletime" Type="varchar" MaxLength="6" />
+    <Property Name="suserdisbtype" Type="varchar" MaxLength="1" />
+    <Property Name="wnumverified" Type="bigint" />
+    <Property Name="solddisbnum" Type="varchar" MaxLength="8" />
+    <Property Name="stationid" Type="varchar" MaxLength="2" />
+    <Property Name="atmresponse" Type="varchar" MaxLength="5" />
+    <Property Name="atmauditno" Type="varchar" MaxLength="6" />
+    <Property Name="sstate" Type="varchar" MaxLength="2" />
+    <Property Name="snamec" Type="varchar" MaxLength="4" />
+    <Property Name="retailflag" Type="varchar" MaxLength="1" />
+    <Property Name="achholdflag" Type="varchar" MaxLength="1" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="sIntuitAckID" Type="varchar" MaxLength="6" />
+    <Property Name="sHoldFlag" Type="varchar" MaxLength="1" />
+    <Property Name="sRetToIRSInd" Type="varchar" MaxLength="1" />
+    <Property Name="sTraceNumber" Type="varchar" MaxLength="15" />
+    <Property Name="sRetCode" Type="varchar" MaxLength="3" />
+    <Property Name="sCommentPrint" Type="varchar" MaxLength="1" />
+    <Property Name="CardUpdateDateTime" Type="varchar" MaxLength="14" />
+    <Property Name="sTransmitterEFIN" Type="varchar" MaxLength="6" />
+    <Property Name="sRevRejInd" Type="varchar" MaxLength="1" />
+    <Property Name="disbrecsent" Type="varchar" MaxLength="1" />
+    <Property Name="sbatchid" Type="varchar" MaxLength="1" />
+    <Property Name="TPGFeeInd" Type="varchar" MaxLength="1" />
+    <Property Name="swcitemid" Type="varchar" MaxLength="23" />
+    <Property Name="sEROFeeAdvInd" Type="varchar" MaxLength="1" />
+    <Property Name="rFiller" Type="float" />
+    <Property Name="cardloadedind" Type="varchar" MaxLength="1" />
+    <Property Name="sIsJHCard" Type="varchar" MaxLength="1" />
+    <Property Name="sIsJHLoanDisb" Type="varchar" MaxLength="1" />
+    <Property Name="sCardTypeInd" Type="varchar" MaxLength="1" />
+    <Property Name="sLibertyFunder" Type="varchar" MaxLength="2" />
+    <Property Name="sLibertyServicer" Type="varchar" MaxLength="2" />
+    <Property Name="fIsPetzSB" Type="bit" />
+    <Property Name="sFundsSentBackToIRS" Type="varchar" MaxLength="1" />
+    <Property Name="sBCMCheck" Type="varchar" MaxLength="1" />
+    <Property Name="sRTCPachtypeind" Type="varchar" MaxLength="1" />
+    <Property Name="sChecklessInd" Type="varchar" MaxLength="1" />
+    <Property Name="sSubDisbkey" Type="varchar" MaxLength="23" />
+    <Property Name="sClaimCodeInd" Type="varchar" MaxLength="1" />
+    <Property Name="sCashWebOrig" Type="varchar" MaxLength="1" />
+    <Property Name="sRemoteChkInd" Type="varchar" MaxLength="1" />
+    <Property Name="sHoldEmailSent" Type="varchar" MaxLength="1" />
+    <Property Name="filler" Type="varchar" MaxLength="16" />
+    <Property Name="ravailable1" Type="float" />
+    <Property Name="sReleaseHoldInd" Type="varchar" MaxLength="1" />
+    <Property Name="sEffectiveDate" Type="varchar" MaxLength="8" />
+    <Property Name="fJHEarlyFunding" Type="bit" />
+    <Property Name="sCardTranID" Type="varchar" MaxLength="10" />
+    <Property Name="RecordHash" Type="varchar" MaxLength="256" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" Nullable="false" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="fCheckAuthorizationFeeDisclosure" Type="bit" />
+    <Property Name="fPointOfSaleDisclosure" Type="bit" />
+    <Property Name="CheckFeeAmountToTran" Type="float" />
+    <Property Name="CheckFeeAmountToMaster" Type="float" />
+    <Property Name="CheckFeeAmountToSite" Type="float" />
+    <Property Name="CheckFeeAmountToProcessor" Type="float" />
+    <Property Name="SSettlementDate" Type="varchar" MaxLength="8" />
+    <Property Name="fadvanceinterestdisc" Type="bit" />
+    <Property Name="DocProcessingFeeDisclosure" Type="bit" />
+  </EntityType>
+  <EntityType Name="RAL">
+    <Key>
+      <PropertyRef Name="RAL_ID" />
+    </Key>
+    <Property Name="RAL_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CORE" Type="int" />
+    <Property Name="SYSTEM_YEAR" Type="int" />
+    <Property Name="ral" Type="varchar" MaxLength="1" />
+    <Property Name="transmitterefin" Type="varchar" MaxLength="6" />
+    <Property Name="pssn" Type="varchar" MaxLength="9" />
+    <Property Name="sssn" Type="varchar" MaxLength="9" />
+    <Property Name="masterefin" Type="varchar" MaxLength="6" />
+    <Property Name="officeid" Type="varchar" MaxLength="11" />
+    <Property Name="filingstatus" Type="varchar" MaxLength="1" />
+    <Property Name="pfname" Type="varchar" MaxLength="16" />
+    <Property Name="pmname" Type="varchar" MaxLength="1" />
+    <Property Name="plname" Type="varchar" MaxLength="16" />
+    <Property Name="sfname" Type="varchar" MaxLength="16" />
+    <Property Name="smname" Type="varchar" MaxLength="1" />
+    <Property Name="slname" Type="varchar" MaxLength="16" />
+    <Property Name="add" Type="varchar" MaxLength="35" />
+    <Property Name="city" Type="varchar" MaxLength="22" />
+    <Property Name="state" Type="varchar" MaxLength="2" />
+    <Property Name="zipcode" Type="varchar" MaxLength="9" />
+    <Property Name="homephonenum" Type="varchar" MaxLength="10" />
+    <Property Name="workphonenum" Type="varchar" MaxLength="10" />
+    <Property Name="rstaterefundamt" Type="float" />
+    <Property Name="statefiled" Type="varchar" MaxLength="2" />
+    <Property Name="irsackdate" Type="varchar" MaxLength="8" />
+    <Property Name="di" Type="varchar" MaxLength="1" />
+    <Property Name="rackrefundamt" Type="float" />
+    <Property Name="rtraninctfee" Type="float" />
+    <Property Name="rtraneffee" Type="float" />
+    <Property Name="rmastinctfee" Type="float" />
+    <Property Name="rmasteffee" Type="float" />
+    <Property Name="rsiteinctfee" Type="float" />
+    <Property Name="rsiteeffee" Type="float" />
+    <Property Name="rsiteprepfee" Type="float" />
+    <Property Name="disbmethod" Type="varchar" MaxLength="1" />
+    <Property Name="rtn" Type="varchar" MaxLength="9" />
+    <Property Name="dan" Type="varchar" MaxLength="17" />
+    <Property Name="accttype" Type="varchar" MaxLength="1" />
+    <Property Name="reic" Type="float" />
+    <Property Name="s10KRevInd" Type="varchar" MaxLength="1" />
+    <Property Name="sDisbFlipInd" Type="varchar" MaxLength="1" />
+    <Property Name="sDisbFlipCode" Type="varchar" MaxLength="2" />
+    <Property Name="x_sitegroupcode" Type="varchar" MaxLength="8" />
+    <Property Name="arrerrors0" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors1" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors2" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors3" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors4" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors5" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors6" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors7" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors8" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors9" Type="varchar" MaxLength="5" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+    <Property Name="raccthandlingfee" Type="float" />
+    <Property Name="raccthandlingfeepaid" Type="float" />
+    <Property Name="rloanamt" Type="float" />
+    <Property Name="apr" Type="varchar" MaxLength="8" />
+    <Property Name="rdisbsum" Type="float" />
+    <Property Name="radjsum" Type="float" />
+    <Property Name="rbaldueowed" Type="float" />
+    <Property Name="productcreatedate" Type="varchar" MaxLength="8" />
+    <Property Name="expachdate" Type="varchar" MaxLength="8" />
+    <Property Name="loandate" Type="varchar" MaxLength="8" />
+    <Property Name="deniedletterdate" Type="varchar" MaxLength="8" />
+    <Property Name="payoffdate" Type="varchar" MaxLength="8" />
+    <Property Name="cancelleddate" Type="varchar" MaxLength="8" />
+    <Property Name="payoffletterdate" Type="varchar" MaxLength="8" />
+    <Property Name="pdletterdate" Type="varchar" MaxLength="8" />
+    <Property Name="arrqueryfields0" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields1" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields2" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields3" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields4" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields5" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields6" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields7" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields8" Type="varchar" MaxLength="20" />
+    <Property Name="arrqueryfields9" Type="varchar" MaxLength="20" />
+    <Property Name="arrkeylen00" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen01" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen02" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen03" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen04" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen05" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen06" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen07" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen08" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen09" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen10" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen11" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen12" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen13" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen14" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen15" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen16" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen17" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen18" Type="char" MaxLength="1" />
+    <Property Name="arrkeylen19" Type="char" MaxLength="1" />
+    <Property Name="rttype" Type="varchar" MaxLength="1" />
+    <Property Name="rirsadjsum" Type="float" />
+    <Property Name="spriordebtflag" Type="varchar" MaxLength="1" />
+    <Property Name="rstatefee" Type="float" />
+    <Property Name="rstatefeepaid" Type="float" />
+    <Property Name="statepaiddate" Type="varchar" MaxLength="8" />
+    <Property Name="rstateadjsum" Type="float" />
+    <Property Name="sprepfeediscl" Type="varchar" MaxLength="1" />
+    <Property Name="sralrtfeediscl" Type="varchar" MaxLength="1" />
+    <Property Name="sstatefeediscl" Type="varchar" MaxLength="1" />
+    <Property Name="sCCdebtdiscl" Type="varchar" MaxLength="1" />
+    <Property Name="sirsfundeddiscl" Type="varchar" MaxLength="1" />
+    <Property Name="sstatefundeddiscl" Type="varchar" MaxLength="1" />
+    <Property Name="rCCdebtdisb" Type="float" />
+    <Property Name="rtranfeepaid" Type="float" />
+    <Property Name="rmastfeepaid" Type="float" />
+    <Property Name="rsitefeepaid" Type="float" />
+    <Property Name="rtranfeepend" Type="float" />
+    <Property Name="rmastfeepend" Type="float" />
+    <Property Name="rsitefeepend" Type="float" />
+    <Property Name="feedisbflag" Type="varchar" MaxLength="1" />
+    <Property Name="semailaddress" Type="varchar" MaxLength="50" />
+    <Property Name="numbertransmitted" Type="varchar" MaxLength="2" />
+    <Property Name="feechangedind" Type="varchar" MaxLength="1" />
+    <Property Name="semailkey" Type="varchar" MaxLength="3" />
+    <Property Name="trialbalancecode" Type="varchar" MaxLength="1" />
+    <Property Name="loandeniedind" Type="varchar" MaxLength="1" />
+    <Property Name="recordcreatedate" Type="varchar" MaxLength="8" />
+    <Property Name="rtotalowedconduit" Type="float" />
+    <Property Name="rtotalpaidconduit" Type="float" />
+    <Property Name="originalprodcode" Type="varchar" MaxLength="1" />
+    <Property Name="dateofbirth" Type="varchar" MaxLength="8" />
+    <Property Name="priorIRSfunding" Type="varchar" MaxLength="1" />
+    <Property Name="recordcreatetime" Type="varchar" MaxLength="6" />
+    <Property Name="productcreatetime" Type="varchar" MaxLength="6" />
+    <Property Name="payoffletterflag" Type="varchar" MaxLength="1" />
+    <Property Name="overturnedind" Type="varchar" MaxLength="1" />
+    <Property Name="cardproxyid" Type="varchar" MaxLength="15" />
+    <Property Name="reserved" Type="varchar" MaxLength="2" />
+    <Property Name="arrposfee1" Type="float" />
+    <Property Name="arrposfee2" Type="float" />
+    <Property Name="arrposfee3" Type="float" />
+    <Property Name="arrpostype1" Type="varchar" MaxLength="16" />
+    <Property Name="arrpostype2" Type="varchar" MaxLength="16" />
+    <Property Name="arrpostype3" Type="varchar" MaxLength="16" />
+    <Property Name="pospaiddate" Type="varchar" MaxLength="8" />
+    <Property Name="rSplitAmtPaid" Type="float" />
+    <Property Name="sLibertyServicer" Type="varchar" MaxLength="2" />
+    <Property Name="x_filler" Type="char" MaxLength="1" />
+    <Property Name="rCCdebttotal" Type="float" />
+    <Property Name="sEROInctPaidInd" Type="varchar" MaxLength="1" />
+    <Property Name="rSplitDisbAmt" Type="float" />
+    <Property Name="rLibNetLoanAmt" Type="float" />
+    <Property Name="rtotaldebtdisb" Type="float" />
+    <Property Name="debitrecind" Type="varchar" MaxLength="1" />
+    <Property Name="MS_MA_OK_NCapplication" Type="varchar" MaxLength="1" />
+    <Property Name="payofftime" Type="varchar" MaxLength="6" />
+    <Property Name="statepaidtime" Type="varchar" MaxLength="6" />
+    <Property Name="pospaidtime" Type="varchar" MaxLength="6" />
+    <Property Name="cancelledtime" Type="varchar" MaxLength="6" />
+    <Property Name="deceasedind" Type="varchar" MaxLength="1" />
+    <Property Name="originalrtn" Type="varchar" MaxLength="9" />
+    <Property Name="originaldan" Type="varchar" MaxLength="17" />
+    <Property Name="originalaccttype" Type="varchar" MaxLength="1" />
+    <Property Name="ReturntoIRSind" Type="varchar" MaxLength="1" />
+    <Property Name="highriskind" Type="varchar" MaxLength="1" />
+    <Property Name="disbinctind" Type="varchar" MaxLength="1" />
+    <Property Name="rstatetaxonprod" Type="float" />
+    <Property Name="rstatetaxonpos" Type="float" />
+    <Property Name="rchildtaxcredit" Type="float" />
+    <Property Name="sCCdebtbank" Type="varchar" MaxLength="1" />
+    <Property Name="OrigDisbMethod" Type="varchar" MaxLength="1" />
+    <Property Name="activatecardid" Type="varchar" MaxLength="2" />
+    <Property Name="clientid" Type="varchar" MaxLength="12" />
+    <Property Name="novruindicator" Type="varchar" MaxLength="1" />
+    <Property Name="bkindicator" Type="varchar" MaxLength="1" />
+    <Property Name="donotcollectflag" Type="varchar" MaxLength="1" />
+    <Property Name="stateonlyind" Type="varchar" MaxLength="1" />
+    <Property Name="arrsstate1" Type="varchar" MaxLength="2" />
+    <Property Name="arrrrefundamt1" Type="float" />
+    <Property Name="arrsstate2" Type="varchar" MaxLength="2" />
+    <Property Name="arrrrefundamt2" Type="float" />
+    <Property Name="arrsstate3" Type="varchar" MaxLength="2" />
+    <Property Name="arrrrefundamt3" Type="float" />
+    <Property Name="arrsstate4" Type="varchar" MaxLength="2" />
+    <Property Name="arrrrefundamt4" Type="float" />
+    <Property Name="arrsstate5" Type="varchar" MaxLength="2" />
+    <Property Name="arrrrefundamt5" Type="float" />
+    <Property Name="ncaindicator" Type="varchar" MaxLength="1" />
+    <Property Name="irsacccode" Type="varchar" MaxLength="1" />
+    <Property Name="rtcollectind" Type="varchar" MaxLength="1" />
+    <Property Name="HCInd" Type="varchar" MaxLength="1" />
+    <Property Name="RegBOptOut" Type="varchar" MaxLength="1" />
+    <Property Name="rfinancecharge" Type="float" />
+    <Property Name="rfinancechargepaid" Type="float" />
+    <Property Name="rretailaccthandlingfee" Type="float" />
+    <Property Name="rretailfinancecharge" Type="float" />
+    <Property Name="raddinctfeedebit" Type="float" />
+    <Property Name="addinctfeedebitind" Type="varchar" MaxLength="1" />
+    <Property Name="achholdflag" Type="varchar" MaxLength="1" />
+    <Property Name="tranguid" Type="varchar" MaxLength="32" />
+    <Property Name="sincident" Type="varchar" MaxLength="1" />
+    <Property Name="paperrtind" Type="varchar" MaxLength="1" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="militaryind" Type="varchar" MaxLength="1" />
+    <Property Name="duediligenceind" Type="varchar" MaxLength="1" />
+    <Property Name="nisiteflag" Type="varchar" MaxLength="1" />
+    <Property Name="raddtoapr" Type="float" />
+    <Property Name="arrfeessdisbdate1" Type="varchar" MaxLength="8" />
+    <Property Name="arrfeessdisbtime1" Type="varchar" MaxLength="6" />
+    <Property Name="arrfeesrtrandisbamt1" Type="float" />
+    <Property Name="arrfeesrmastdisbamt1" Type="float" />
+    <Property Name="arrfeesrsitedisbamt1" Type="float" />
+    <Property Name="arrfeessdisbdate2" Type="varchar" MaxLength="8" />
+    <Property Name="arrfeessdisbtime2" Type="varchar" MaxLength="6" />
+    <Property Name="arrfeesrtrandisbamt2" Type="float" />
+    <Property Name="arrfeesrmastdisbamt2" Type="float" />
+    <Property Name="arrfeesrsitedisbamt2" Type="float" />
+    <Property Name="arrfeessdisbdate3" Type="varchar" MaxLength="8" />
+    <Property Name="arrfeessdisbtime3" Type="varchar" MaxLength="6" />
+    <Property Name="arrfeesrtrandisbamt3" Type="float" />
+    <Property Name="arrfeesrmastdisbamt3" Type="float" />
+    <Property Name="arrfeesrsitedisbamt3" Type="float" />
+    <Property Name="arrfeessdisbdate4" Type="varchar" MaxLength="8" />
+    <Property Name="arrfeessdisbtime4" Type="varchar" MaxLength="6" />
+    <Property Name="arrfeesrtrandisbamt4" Type="float" />
+    <Property Name="arrfeesrmastdisbamt4" Type="float" />
+    <Property Name="arrfeesrsitedisbamt4" Type="float" />
+    <Property Name="arrfeessdisbdate5" Type="varchar" MaxLength="8" />
+    <Property Name="arrfeessdisbtime5" Type="varchar" MaxLength="6" />
+    <Property Name="arrfeesrtrandisbamt5" Type="float" />
+    <Property Name="arrfeesrmastdisbamt5" Type="float" />
+    <Property Name="arrfeesrsitedisbamt5" Type="float" />
+    <Property Name="ftaggedtoero" Type="bit" />
+    <Property Name="rtranfeespaidbystate" Type="float" />
+    <Property Name="rmastfeespaidbystate" Type="float" />
+    <Property Name="rsitefeespaidbystate" Type="float" />
+    <Property Name="rposfeepaidbystate" Type="float" />
+    <Property Name="rtranfeespaidbyfed" Type="float" />
+    <Property Name="rmastfeespaidbyfed" Type="float" />
+    <Property Name="rsitefeespaidbyfed" Type="float" />
+    <Property Name="rposfeepaidbyfed" Type="float" />
+    <Property Name="sSMSPhoneNum" Type="varchar" MaxLength="10" />
+    <Property Name="arrSMSFlags" Type="varchar" MaxLength="20" />
+    <Property Name="sIntuitAckID" Type="varchar" MaxLength="6" />
+    <Property Name="sOFACHit" Type="varchar" MaxLength="1" />
+    <Property Name="sOFACDate" Type="varchar" MaxLength="8" />
+    <Property Name="historyind" Type="varchar" MaxLength="1" />
+    <Property Name="fComplianceDenial" Type="bit" />
+    <Property Name="rTaxRefund" Type="float" />
+    <Property Name="sSARNumber" Type="varchar" MaxLength="8" />
+    <Property Name="sSARMarkedDate" Type="varchar" MaxLength="8" />
+    <Property Name="fWesternUnion" Type="bit" />
+    <Property Name="sFeesCappedInd" Type="varchar" MaxLength="1" />
+    <Property Name="lVolCnt" Type="bigint" />
+    <Property Name="sPTIN" Type="varchar" MaxLength="9" />
+    <Property Name="sSSDIHit" Type="varchar" MaxLength="1" />
+    <Property Name="sChangeAddressInd" Type="varchar" MaxLength="1" />
+    <Property Name="wreprocessingnum" Type="bigint" />
+    <Property Name="CardUpdateDateTime" Type="varchar" MaxLength="14" />
+    <Property Name="spdateofbirth" Type="varchar" MaxLength="8" />
+    <Property Name="permacctcreateind" Type="varchar" MaxLength="1" />
+    <Property Name="fedfeechargeind" Type="varchar" MaxLength="1" />
+    <Property Name="statefeechargeind" Type="varchar" MaxLength="1" />
+    <Property Name="rOtherFeesSent" Type="float" />
+    <Property Name="sIDTheft" Type="varchar" MaxLength="1" />
+    <Property Name="rOtherFeesAck" Type="float" />
+    <Property Name="sCardTypeInd" Type="varchar" MaxLength="1" />
+    <Property Name="sEncryptedCardNo" Type="varchar" MaxLength="64" />
+    <Property Name="sExpires" Type="varchar" MaxLength="6" />
+    <Property Name="CCV" Type="varchar" MaxLength="6" />
+    <Property Name="sBillingZip" Type="varchar" MaxLength="9" />
+    <Property Name="sCashMgmtInd" Type="varchar" MaxLength="1" />
+    <Property Name="fsplitdisb" Type="bit" />
+    <Property Name="FeePayRevDate" Type="varchar" MaxLength="8" />
+    <Property Name="sCardDDA" Type="varchar" MaxLength="17" />
+    <Property Name="EROInctPaidDate" Type="varchar" MaxLength="8" />
+    <Property Name="arrFranchisePOSFee1" Type="float" />
+    <Property Name="arrFranchisePOSFee2" Type="float" />
+    <Property Name="arrFranchisePOSFee3" Type="float" />
+    <Property Name="rJHcardamt" Type="float" />
+    <Property Name="sglobalid" Type="varchar" MaxLength="9" />
+    <Property Name="rHoldCCRTC" Type="float" />
+    <Property Name="fJHcarddisb" Type="bit" />
+    <Property Name="sFeePayTransactID" Type="varchar" MaxLength="10" />
+    <Property Name="slibertyloanupdated" Type="varchar" MaxLength="1" />
+    <Property Name="sSpecialStateInd" Type="varchar" MaxLength="1" />
+    <Property Name="sLibertyFunder" Type="varchar" MaxLength="2" />
+    <Property Name="sRTCPachtypeInd" Type="varchar" MaxLength="1" />
+    <Property Name="sRetToIRSFeeCharged" Type="varchar" MaxLength="1" />
+    <Property Name="sLibertyLoanInd" Type="varchar" MaxLength="1" />
+    <Property Name="sIDTheftDoc" Type="varchar" MaxLength="1" />
+    <Property Name="sBankFeeDisclCnt" Type="varchar" MaxLength="1" />
+    <Property Name="sChecklessInd" Type="varchar" MaxLength="1" />
+    <Property Name="rSiteRTFee" Type="float" />
+    <Property Name="rdisbfee" Type="float" />
+    <Property Name="rdisbfeepaid" Type="float" />
+    <Property Name="sDisbFeePaidBy" Type="varchar" MaxLength="1" />
+    <Property Name="rTranMiscFee1" Type="float" />
+    <Property Name="rTranMiscFee2" Type="float" />
+    <Property Name="sjhcardproxyid" Type="varchar" MaxLength="9" />
+    <Property Name="sSARFlagged" Type="varchar" MaxLength="1" />
+    <Property Name="sSARStatus" Type="varchar" MaxLength="1" />
+    <Property Name="sSARCategory" Type="varchar" MaxLength="1" />
+    <Property Name="sCardBrandInd" Type="varchar" MaxLength="1" />
+    <Property Name="x_XRCardInd" Type="varchar" MaxLength="1" />
+    <Property Name="sRemoteChkInd" Type="varchar" MaxLength="1" />
+    <Property Name="statusChangeAcct" Type="varchar" MaxLength="2" />
+    <Property Name="sBypassWMIDval" Type="varchar" MaxLength="1" />
+    <Property Name="filler" Type="varchar" MaxLength="20" />
+    <Property Name="x_cardproxyid" Type="varchar" MaxLength="13" />
+    <Property Name="doclogdate" Type="varchar" MaxLength="8" />
+    <Property Name="doclocationnum" Type="varchar" MaxLength="8" />
+    <Property Name="sIntuitIssue2013" Type="varchar" MaxLength="1" />
+    <Property Name="rx_ildebttotal" Type="float" />
+    <Property Name="rx_ildebtdisb" Type="float" />
+    <Property Name="posordernumber" Type="varchar" MaxLength="12" />
+    <Property Name="wreserved" Type="bigint" />
+    <Property Name="eicprecertreqd" Type="varchar" MaxLength="1" />
+    <Property Name="sharehistoryoptout" Type="varchar" MaxLength="1" />
+    <Property Name="sDoNotEmailInd" Type="varchar" MaxLength="1" />
+    <Property Name="sIPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="sDebitInd" Type="varchar" MaxLength="1" />
+    <Property Name="sCreditModifiedDate" Type="varchar" MaxLength="8" />
+    <Property Name="sCreditInd" Type="varchar" MaxLength="1" />
+    <Property Name="sRTCPlusInd" Type="varchar" MaxLength="1" />
+    <Property Name="sCardNo" Type="varchar" MaxLength="16" />
+    <Property Name="sAmazonInd" Type="varchar" MaxLength="1" />
+    <Property Name="rAmazonAmt" Type="float" />
+    <Property Name="x_rAmazonSent" Type="float" />
+    <Property Name="sAmazonDateSent" Type="varchar" MaxLength="8" />
+    <Property Name="sAmazonDateFailed" Type="varchar" MaxLength="8" />
+    <Property Name="sTranFilingId" Type="varchar" MaxLength="25" />
+    <Property Name="sCreditProdInd" Type="varchar" MaxLength="1" />
+    <Property Name="sCreditReqStatus" Type="varchar" MaxLength="1" />
+    <Property Name="rCreditRequestAmt" Type="float" />
+    <Property Name="rCreditApprovedAmt" Type="float" />
+    <Property Name="rICAAmt" Type="float" />
+    <Property Name="rICAPaid" Type="float" />
+    <Property Name="rICAPend" Type="float" />
+    <Property Name="rICAFee" Type="float" />
+    <Property Name="rICAInterest" Type="float" />
+    <Property Name="sCreditDisbDate" Type="varchar" MaxLength="8" />
+    <Property Name="sNoneBankProdInd" Type="varchar" MaxLength="1" />
+    <Property Name="rTranMiscFee3" Type="float" />
+    <Property Name="fSMSOptIn" Type="bit" />
+    <Property Name="sCreditDecisionDate" Type="varchar" MaxLength="8" />
+    <Property Name="sCreditLastInqDate" Type="varchar" MaxLength="8" />
+    <Property Name="rTranDebtFee" Type="float" />
+    <Property Name="fRiskFlag1" Type="bit" />
+    <Property Name="fRiskFlag2" Type="bit" />
+    <Property Name="fRiskFlag3" Type="bit" />
+    <Property Name="fRiskFlag4" Type="bit" />
+    <Property Name="fRiskFlag5" Type="bit" />
+    <Property Name="fRiskFlag6" Type="bit" />
+    <Property Name="fRiskFlag7" Type="bit" />
+    <Property Name="fRiskFlag8" Type="bit" />
+    <Property Name="fRiskFlag9" Type="bit" />
+    <Property Name="fRiskFlag10" Type="bit" />
+    <Property Name="rMasterAdvanceAmt" Type="float" />
+    <Property Name="rMasterAdvancePaid" Type="float" />
+    <Property Name="rMasterAdvancePend" Type="float" />
+    <Property Name="rCreditAmt" Type="float" />
+    <Property Name="rCreditPaid" Type="float" />
+    <Property Name="rCreditPend" Type="float" />
+    <Property Name="sIntuitOrderSource" Type="varchar" MaxLength="1" />
+    <Property Name="sIntuitProduct" Type="varchar" MaxLength="1" />
+    <Property Name="CreditProductCommunicationPreference" Type="varchar" MaxLength="1" />
+    <Property Name="RTFederalBankFee" Type="float" />
+    <Property Name="RTStateBankFee" Type="float" />
+    <Property Name="CreditProductApplicant" Type="varchar" MaxLength="1" />
+    <Property Name="TPEMailMarketConsent" Type="varchar" MaxLength="1" />
+    <Property Name="RTApplicationID" Type="varchar" MaxLength="10" />
+    <Property Name="CardRegistrationFederalId" Type="varchar" MaxLength="32" />
+    <Property Name="CardRegistrationStateId" Type="varchar" MaxLength="32" />
+    <Property Name="CreditProductAgreementDateTime" Type="varchar" MaxLength="14" />
+    <Property Name="RiskSubcode" Type="varchar" MaxLength="1" />
+    <Property Name="EROCardIncentiveQualification" Type="bit" />
+    <Property Name="EROCardIncentivePaid" Type="bit" />
+    <Property Name="specialhandlingsitestate" Type="varchar" MaxLength="2" />
+    <Property Name="AdditionalAdvInd" Type="varchar" MaxLength="1" />
+    <Property Name="additionaladvagreedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="holidayadvanceindicator" Type="bit" />
+    <Property Name="PreAckAdvanceInd" Type="varchar" MaxLength="1" />
+    <Property Name="AdvanceProgramType" Type="varchar" MaxLength="1" />
+    <Property Name="TPFeesPrintedFirstTime" Type="varchar" MaxLength="14" />
+    <Property Name="TPFeesPrintedLatest" Type="varchar" MaxLength="14" />
+    <Property Name="CheckAuthorizationFee" Type="float" />
+    <Property Name="CardReferenceId" Type="varchar" MaxLength="16" />
+    <Property Name="SAdvanceInterestDisc" Type="varchar" MaxLength="1" />
+    <Property Name="RAdvanceInterestAmount" Type="float" />
+    <Property Name="RAdvanceInterestAmountPaid" Type="float" />
+    <Property Name="CheckFeeAmountPendingToTran" Type="float" />
+    <Property Name="CheckFeeAmountPendingToMaster" Type="float" />
+    <Property Name="CheckFeeAmountPendingToSite" Type="float" />
+    <Property Name="CheckFeeAmountPendingToProcessor" Type="float" />
+    <Property Name="TotalCheckFeeAmountPaid" Type="float" />
+    <Property Name="LoanApplicationStartDateTime" Type="varchar" MaxLength="14" />
+    <Property Name="TaxReturnTimestamp" Type="varchar" MaxLength="25" />
+    <Property Name="EroChargedCreditProductFee" Type="float" />
+    <Property Name="SDebitModifiedDate" Type="varchar" MaxLength="8" />
+    <Property Name="originalpssn" Type="varchar" MaxLength="9" />
+    <Property Name="RecordHash" Type="varchar" MaxLength="256" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" Nullable="false" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="PYFedFundingStatus" Type="varchar" MaxLength="1" />
+    <Property Name="PYFedAnticipatedRefundAmount" Type="float" />
+    <Property Name="PYFedActualRefundAmount" Type="float" />
+    <Property Name="DocumentProcessingFeeAmount" Type="float" />
+    <Property Name="DocumentProcessingFeePaid" Type="float" />
+    <Property Name="W2AutoImport" Type="varchar" MaxLength="1" />
+    <Property Name="DriversLicenseAutoImport" Type="varchar" MaxLength="1" />
+    <Property Name="BaasCardId" Type="varchar" MaxLength="40" />
+    <Property Name="ProductCode" Type="varchar" MaxLength="1" />
+    <Property Name="DocProcessingFeeDisclosed" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CORE_COPY.dbo.RISK' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RISK">
+    <Key>
+      <PropertyRef Name="RISK_ID" />
+      <PropertyRef Name="LastUpdateTimeStamp" />
+      <PropertyRef Name="DBCreateDate" />
+      <PropertyRef Name="DBUpdateDate" />
+    </Key>
+    <Property Name="RISK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CORE" Type="int" />
+    <Property Name="SystemYear" Type="int" />
+    <Property Name="pssn" Type="varchar" MaxLength="9" />
+    <Property Name="status" Type="varchar" MaxLength="1" />
+    <Property Name="pmadd" Type="varchar" MaxLength="35" />
+    <Property Name="pmcity" Type="varchar" MaxLength="22" />
+    <Property Name="pmstate" Type="varchar" MaxLength="2" />
+    <Property Name="pmzipcode" Type="varchar" MaxLength="9" />
+    <Property Name="smadd" Type="varchar" MaxLength="35" />
+    <Property Name="smcity" Type="varchar" MaxLength="22" />
+    <Property Name="smstate" Type="varchar" MaxLength="2" />
+    <Property Name="smzipcode" Type="varchar" MaxLength="9" />
+    <Property Name="ppadd" Type="varchar" MaxLength="35" />
+    <Property Name="ppcity" Type="varchar" MaxLength="22" />
+    <Property Name="ppstate" Type="varchar" MaxLength="2" />
+    <Property Name="ppzipcode" Type="varchar" MaxLength="9" />
+    <Property Name="spadd" Type="varchar" MaxLength="35" />
+    <Property Name="spcity" Type="varchar" MaxLength="22" />
+    <Property Name="spstate" Type="varchar" MaxLength="2" />
+    <Property Name="spzipcode" Type="varchar" MaxLength="9" />
+    <Property Name="piddesc" Type="varchar" MaxLength="20" />
+    <Property Name="pidnum" Type="varchar" MaxLength="20" />
+    <Property Name="siddesc" Type="varchar" MaxLength="20" />
+    <Property Name="sidnum" Type="varchar" MaxLength="20" />
+    <Property Name="sssn" Type="varchar" MaxLength="9" />
+    <Property Name="efin" Type="varchar" MaxLength="6" />
+    <Property Name="fstat" Type="varchar" MaxLength="1" />
+    <Property Name="pfname" Type="varchar" MaxLength="16" />
+    <Property Name="plname" Type="varchar" MaxLength="16" />
+    <Property Name="sfname" Type="varchar" MaxLength="16" />
+    <Property Name="slname" Type="varchar" MaxLength="16" />
+    <Property Name="homephonenum" Type="varchar" MaxLength="10" />
+    <Property Name="workphonenum" Type="varchar" MaxLength="10" />
+    <Property Name="dateofbirth" Type="varchar" MaxLength="8" />
+    <Property Name="recordcreatedate" Type="varchar" MaxLength="8" />
+    <Property Name="recordcreatetime" Type="varchar" MaxLength="6" />
+    <Property Name="stationid" Type="varchar" MaxLength="2" />
+    <Property Name="arrerrors0" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors1" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors2" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors3" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors4" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors5" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors6" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors7" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors8" Type="varchar" MaxLength="5" />
+    <Property Name="arrerrors9" Type="varchar" MaxLength="5" />
+    <Property Name="lastupdatedatetime" Type="varchar" MaxLength="14" />
+    <Property Name="HRInd0" Type="varchar" MaxLength="2" />
+    <Property Name="HRInd1" Type="varchar" MaxLength="2" />
+    <Property Name="HRInd2" Type="varchar" MaxLength="2" />
+    <Property Name="HRInd3" Type="varchar" MaxLength="2" />
+    <Property Name="HRInd4" Type="varchar" MaxLength="2" />
+    <Property Name="Lifestyle_DwellType" Type="varchar" MaxLength="1" />
+    <Property Name="Lifestyle_AssessedAmount" Type="int" />
+    <Property Name="Lifestyle_ApplicantOwned" Type="bit" />
+    <Property Name="Lifestyle_FamilyOwned" Type="bit" />
+    <Property Name="Lifestyle_OccupantOwned" Type="bit" />
+    <Property Name="Lifestyle_NotPrimaryResidence" Type="bit" />
+    <Property Name="Lifestyle_DateFirstSeen" Type="varchar" MaxLength="8" />
+    <Property Name="Lifestyle_DateFirstSeen2" Type="varchar" MaxLength="8" />
+    <Property Name="Lifestyle_DateFirstSeen3" Type="varchar" MaxLength="8" />
+    <Property Name="Lifestyle_NumberNonDerogs" Type="int" />
+    <Property Name="Lifestyle_DateLastUpdate" Type="varchar" MaxLength="8" />
+    <Property Name="Lifestyle_RecentUpdate" Type="bit" />
+    <Property Name="Lifestyle_LicenseType" Type="varchar" MaxLength="20" />
+    <Property Name="Demographic_Age" Type="int" />
+    <Property Name="Demographic_SSNIssued" Type="bit" />
+    <Property Name="Demographic_LowIssueDate" Type="varchar" MaxLength="8" />
+    <Property Name="Demographic_HighIssueDate" Type="varchar" MaxLength="8" />
+    <Property Name="Demographic_NonUSssn" Type="bit" />
+    <Property Name="Demographic_SSNIssueState" Type="varchar" MaxLength="2" />
+    <Property Name="Demographic_SSNFirstSeen" Type="varchar" MaxLength="8" />
+    <Property Name="Financial_PhoneFullNameMatch" Type="bit" />
+    <Property Name="Financial_PhoneLastNameMatch" Type="bit" />
+    <Property Name="Financial_NAPStatus" Type="varchar" MaxLength="1" />
+    <Property Name="Financial_CreditFirstSeen" Type="varchar" MaxLength="8" />
+    <Property Name="Property_PropertyOwnedTotal" Type="int" />
+    <Property Name="Property_PropertyOwnedAssessedTotal" Type="int" />
+    <Property Name="Property_PropertyHistoricallyOwned" Type="int" />
+    <Property Name="Property_DateMostRecentPurchase" Type="varchar" MaxLength="8" />
+    <Property Name="Property_DateFirstPurchase" Type="varchar" MaxLength="8" />
+    <Property Name="Derog_CriminalCount" Type="int" />
+    <Property Name="Derog_FilingCount" Type="int" />
+    <Property Name="Derog_DateLastSeen" Type="varchar" MaxLength="8" />
+    <Property Name="Derog_Disposition" Type="varchar" MaxLength="20" />
+    <Property Name="Derog_LiensHistoricalUnreleased" Type="int" />
+    <Property Name="Derog_LiensRecentUnreleasedCount" Type="int" />
+    <Property Name="Derog_JudgementsCount" Type="int" />
+    <Property Name="Derog_EvictionsCount" Type="int" />
+    <Property Name="Derog_ForeclosureCount" Type="int" />
+    <Property Name="Derog_TotalNumberDerogs" Type="int" />
+    <Property Name="Derog_DateLastDerog" Type="varchar" MaxLength="8" />
+    <Property Name="arrAddName0" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName1" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName2" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName3" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName4" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName5" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName6" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName7" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName8" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddName9" Type="varchar" MaxLength="35" />
+    <Property Name="arrAddValue0" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue1" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue2" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue3" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue4" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue5" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue6" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue7" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue8" Type="varchar" MaxLength="25" />
+    <Property Name="arrAddValue9" Type="varchar" MaxLength="25" />
+    <Property Name="score" Type="varchar" MaxLength="5" />
+    <Property Name="verifssn" Type="varchar" MaxLength="9" />
+    <Property Name="pissueddate" Type="varchar" MaxLength="8" />
+    <Property Name="pissuedby" Type="varchar" MaxLength="20" />
+    <Property Name="pexpirationdate" Type="varchar" MaxLength="8" />
+    <Property Name="sissueddate" Type="varchar" MaxLength="8" />
+    <Property Name="sissuedby" Type="varchar" MaxLength="20" />
+    <Property Name="sexpirationdate" Type="varchar" MaxLength="8" />
+    <Property Name="modelscore" Type="varchar" MaxLength="5" />
+    <Property Name="pcitizen" Type="varchar" MaxLength="1" />
+    <Property Name="pcountry" Type="varchar" MaxLength="20" />
+    <Property Name="scitizen" Type="varchar" MaxLength="1" />
+    <Property Name="scountry" Type="varchar" MaxLength="20" />
+    <Property Name="holdppadd" Type="varchar" MaxLength="35" />
+    <Property Name="holdppcity" Type="varchar" MaxLength="22" />
+    <Property Name="holdppstate" Type="varchar" MaxLength="2" />
+    <Property Name="holdppzipcode" Type="varchar" MaxLength="9" />
+    <Property Name="PulledAppAddr" Type="varchar" MaxLength="1" />
+    <Property Name="LastUpdateTimeStamp" Type="bigint" Nullable="false" />
+    <Property Name="DBCreateDate" Type="datetime" Nullable="false" />
+    <Property Name="DBUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CORE_COPYModelStoreContainer">
+    <EntitySet Name="ADJ" EntityType="Self.ADJ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISB" EntityType="Self.DISB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RAL" EntityType="Self.RAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COM" EntityType="Self.COM" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [COM].[COM_ID] AS [COM_ID], 
+    [COM].[CORE] AS [CORE], 
+    [COM].[SystemYear] AS [SystemYear], 
+    [COM].[Source] AS [Source], 
+    [COM].[scomkey] AS [scomkey], 
+    [COM].[srecnum] AS [srecnum], 
+    [COM].[sseqnum] AS [sseqnum], 
+    [COM].[sdept] AS [sdept], 
+    [COM].[sTag] AS [sTag], 
+    [COM].[sintuitid] AS [sintuitid], 
+    [COM].[comment] AS [comment], 
+    [COM].[lastupdatedatetime] AS [lastupdatedatetime], 
+    [COM].[LastUpdateTimeStamp] AS [LastUpdateTimeStamp], 
+    [COM].[DBCreateDate] AS [DBCreateDate], 
+    [COM].[DBUpdateDate] AS [DBUpdateDate]
+    FROM [dbo].[COM] AS [COM]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Comment" EntityType="Self.Comment" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Comment].[CommentId] AS [CommentId], 
+    [Comment].[Core] AS [Core], 
+    [Comment].[SystemYear] AS [SystemYear], 
+    [Comment].[Source] AS [Source], 
+    [Comment].[CommentKey] AS [CommentKey], 
+    [Comment].[RecordNumber] AS [RecordNumber], 
+    [Comment].[SequenceNumber] AS [SequenceNumber], 
+    [Comment].[Department] AS [Department], 
+    [Comment].[Tag] AS [Tag], 
+    [Comment].[IntuitId] AS [IntuitId], 
+    [Comment].[CommentTypeId] AS [CommentTypeId], 
+    [Comment].[commentSource] AS [commentSource], 
+    [Comment].[CommentText] AS [CommentText], 
+    [Comment].[lastupdatedatetime] AS [lastupdatedatetime], 
+    [Comment].[LastUpdateTimeStamp] AS [LastUpdateTimeStamp], 
+    [Comment].[DBCreateDate] AS [DBCreateDate], 
+    [Comment].[DBUpdateDate] AS [DBUpdateDate]
+    FROM [dbo].[Comment] AS [Comment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RISK" EntityType="Self.RISK" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RISK].[RISK_ID] AS [RISK_ID], 
+    [RISK].[CORE] AS [CORE], 
+    [RISK].[SystemYear] AS [SystemYear], 
+    [RISK].[pssn] AS [pssn], 
+    [RISK].[status] AS [status], 
+    [RISK].[pmadd] AS [pmadd], 
+    [RISK].[pmcity] AS [pmcity], 
+    [RISK].[pmstate] AS [pmstate], 
+    [RISK].[pmzipcode] AS [pmzipcode], 
+    [RISK].[smadd] AS [smadd], 
+    [RISK].[smcity] AS [smcity], 
+    [RISK].[smstate] AS [smstate], 
+    [RISK].[smzipcode] AS [smzipcode], 
+    [RISK].[ppadd] AS [ppadd], 
+    [RISK].[ppcity] AS [ppcity], 
+    [RISK].[ppstate] AS [ppstate], 
+    [RISK].[ppzipcode] AS [ppzipcode], 
+    [RISK].[spadd] AS [spadd], 
+    [RISK].[spcity] AS [spcity], 
+    [RISK].[spstate] AS [spstate], 
+    [RISK].[spzipcode] AS [spzipcode], 
+    [RISK].[piddesc] AS [piddesc], 
+    [RISK].[pidnum] AS [pidnum], 
+    [RISK].[siddesc] AS [siddesc], 
+    [RISK].[sidnum] AS [sidnum], 
+    [RISK].[sssn] AS [sssn], 
+    [RISK].[efin] AS [efin], 
+    [RISK].[fstat] AS [fstat], 
+    [RISK].[pfname] AS [pfname], 
+    [RISK].[plname] AS [plname], 
+    [RISK].[sfname] AS [sfname], 
+    [RISK].[slname] AS [slname], 
+    [RISK].[homephonenum] AS [homephonenum], 
+    [RISK].[workphonenum] AS [workphonenum], 
+    [RISK].[dateofbirth] AS [dateofbirth], 
+    [RISK].[recordcreatedate] AS [recordcreatedate], 
+    [RISK].[recordcreatetime] AS [recordcreatetime], 
+    [RISK].[stationid] AS [stationid], 
+    [RISK].[arrerrors0] AS [arrerrors0], 
+    [RISK].[arrerrors1] AS [arrerrors1], 
+    [RISK].[arrerrors2] AS [arrerrors2], 
+    [RISK].[arrerrors3] AS [arrerrors3], 
+    [RISK].[arrerrors4] AS [arrerrors4], 
+    [RISK].[arrerrors5] AS [arrerrors5], 
+    [RISK].[arrerrors6] AS [arrerrors6], 
+    [RISK].[arrerrors7] AS [arrerrors7], 
+    [RISK].[arrerrors8] AS [arrerrors8], 
+    [RISK].[arrerrors9] AS [arrerrors9], 
+    [RISK].[lastupdatedatetime] AS [lastupdatedatetime], 
+    [RISK].[HRInd0] AS [HRInd0], 
+    [RISK].[HRInd1] AS [HRInd1], 
+    [RISK].[HRInd2] AS [HRInd2], 
+    [RISK].[HRInd3] AS [HRInd3], 
+    [RISK].[HRInd4] AS [HRInd4], 
+    [RISK].[Lifestyle_DwellType] AS [Lifestyle_DwellType], 
+    [RISK].[Lifestyle_AssessedAmount] AS [Lifestyle_AssessedAmount], 
+    [RISK].[Lifestyle_ApplicantOwned] AS [Lifestyle_ApplicantOwned], 
+    [RISK].[Lifestyle_FamilyOwned] AS [Lifestyle_FamilyOwned], 
+    [RISK].[Lifestyle_OccupantOwned] AS [Lifestyle_OccupantOwned], 
+    [RISK].[Lifestyle_NotPrimaryResidence] AS [Lifestyle_NotPrimaryResidence], 
+    [RISK].[Lifestyle_DateFirstSeen] AS [Lifestyle_DateFirstSeen], 
+    [RISK].[Lifestyle_DateFirstSeen2] AS [Lifestyle_DateFirstSeen2], 
+    [RISK].[Lifestyle_DateFirstSeen3] AS [Lifestyle_DateFirstSeen3], 
+    [RISK].[Lifestyle_NumberNonDerogs] AS [Lifestyle_NumberNonDerogs], 
+    [RISK].[Lifestyle_DateLastUpdate] AS [Lifestyle_DateLastUpdate], 
+    [RISK].[Lifestyle_RecentUpdate] AS [Lifestyle_RecentUpdate], 
+    [RISK].[Lifestyle_LicenseType] AS [Lifestyle_LicenseType], 
+    [RISK].[Demographic_Age] AS [Demographic_Age], 
+    [RISK].[Demographic_SSNIssued] AS [Demographic_SSNIssued], 
+    [RISK].[Demographic_LowIssueDate] AS [Demographic_LowIssueDate], 
+    [RISK].[Demographic_HighIssueDate] AS [Demographic_HighIssueDate], 
+    [RISK].[Demographic_NonUSssn] AS [Demographic_NonUSssn], 
+    [RISK].[Demographic_SSNIssueState] AS [Demographic_SSNIssueState], 
+    [RISK].[Demographic_SSNFirstSeen] AS [Demographic_SSNFirstSeen], 
+    [RISK].[Financial_PhoneFullNameMatch] AS [Financial_PhoneFullNameMatch], 
+    [RISK].[Financial_PhoneLastNameMatch] AS [Financial_PhoneLastNameMatch], 
+    [RISK].[Financial_NAPStatus] AS [Financial_NAPStatus], 
+    [RISK].[Financial_CreditFirstSeen] AS [Financial_CreditFirstSeen], 
+    [RISK].[Property_PropertyOwnedTotal] AS [Property_PropertyOwnedTotal], 
+    [RISK].[Property_PropertyOwnedAssessedTotal] AS [Property_PropertyOwnedAssessedTotal], 
+    [RISK].[Property_PropertyHistoricallyOwned] AS [Property_PropertyHistoricallyOwned], 
+    [RISK].[Property_DateMostRecentPurchase] AS [Property_DateMostRecentPurchase], 
+    [RISK].[Property_DateFirstPurchase] AS [Property_DateFirstPurchase], 
+    [RISK].[Derog_CriminalCount] AS [Derog_CriminalCount], 
+    [RISK].[Derog_FilingCount] AS [Derog_FilingCount], 
+    [RISK].[Derog_DateLastSeen] AS [Derog_DateLastSeen], 
+    [RISK].[Derog_Disposition] AS [Derog_Disposition], 
+    [RISK].[Derog_LiensHistoricalUnreleased] AS [Derog_LiensHistoricalUnreleased], 
+    [RISK].[Derog_LiensRecentUnreleasedCount] AS [Derog_LiensRecentUnreleasedCount], 
+    [RISK].[Derog_JudgementsCount] AS [Derog_JudgementsCount], 
+    [RISK].[Derog_EvictionsCount] AS [Derog_EvictionsCount], 
+    [RISK].[Derog_ForeclosureCount] AS [Derog_ForeclosureCount], 
+    [RISK].[Derog_TotalNumberDerogs] AS [Derog_TotalNumberDerogs], 
+    [RISK].[Derog_DateLastDerog] AS [Derog_DateLastDerog], 
+    [RISK].[arrAddName0] AS [arrAddName0], 
+    [RISK].[arrAddName1] AS [arrAddName1], 
+    [RISK].[arrAddName2] AS [arrAddName2], 
+    [RISK].[arrAddName3] AS [arrAddName3], 
+    [RISK].[arrAddName4] AS [arrAddName4], 
+    [RISK].[arrAddName5] AS [arrAddName5], 
+    [RISK].[arrAddName6] AS [arrAddName6], 
+    [RISK].[arrAddName7] AS [arrAddName7], 
+    [RISK].[arrAddName8] AS [arrAddName8], 
+    [RISK].[arrAddName9] AS [arrAddName9], 
+    [RISK].[arrAddValue0] AS [arrAddValue0], 
+    [RISK].[arrAddValue1] AS [arrAddValue1], 
+    [RISK].[arrAddValue2] AS [arrAddValue2], 
+    [RISK].[arrAddValue3] AS [arrAddValue3], 
+    [RISK].[arrAddValue4] AS [arrAddValue4], 
+    [RISK].[arrAddValue5] AS [arrAddValue5], 
+    [RISK].[arrAddValue6] AS [arrAddValue6], 
+    [RISK].[arrAddValue7] AS [arrAddValue7], 
+    [RISK].[arrAddValue8] AS [arrAddValue8], 
+    [RISK].[arrAddValue9] AS [arrAddValue9], 
+    [RISK].[score] AS [score], 
+    [RISK].[verifssn] AS [verifssn], 
+    [RISK].[pissueddate] AS [pissueddate], 
+    [RISK].[pissuedby] AS [pissuedby], 
+    [RISK].[pexpirationdate] AS [pexpirationdate], 
+    [RISK].[sissueddate] AS [sissueddate], 
+    [RISK].[sissuedby] AS [sissuedby], 
+    [RISK].[sexpirationdate] AS [sexpirationdate], 
+    [RISK].[modelscore] AS [modelscore], 
+    [RISK].[pcitizen] AS [pcitizen], 
+    [RISK].[pcountry] AS [pcountry], 
+    [RISK].[scitizen] AS [scitizen], 
+    [RISK].[scountry] AS [scountry], 
+    [RISK].[holdppadd] AS [holdppadd], 
+    [RISK].[holdppcity] AS [holdppcity], 
+    [RISK].[holdppstate] AS [holdppstate], 
+    [RISK].[holdppzipcode] AS [holdppzipcode], 
+    [RISK].[PulledAppAddr] AS [PulledAppAddr], 
+    [RISK].[LastUpdateTimeStamp] AS [LastUpdateTimeStamp], 
+    [RISK].[DBCreateDate] AS [DBCreateDate], 
+    [RISK].[DBUpdateDate] AS [DBUpdateDate]
+    FROM [dbo].[RISK] AS [RISK]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

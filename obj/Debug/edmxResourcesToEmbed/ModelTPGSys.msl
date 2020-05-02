@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TPGSysModelStoreContainer" CdmEntityContainer="TPGSysEntities">
+    <EntitySetMapping Name="AchEntries">
+      <EntityTypeMapping TypeName="TPGSysModel.AchEntry">
+        <MappingFragment StoreEntitySet="AchEntry">
+          <ScalarProperty Name="AchEntryId" ColumnName="AchEntryId" />
+          <ScalarProperty Name="AchFileId" ColumnName="AchFileId" />
+          <ScalarProperty Name="AchEntryStatusId" ColumnName="AchEntryStatusId" />
+          <ScalarProperty Name="LineSequence" ColumnName="LineSequence" />
+          <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="ReceivingDFIIdentification" ColumnName="ReceivingDFIIdentification" />
+          <ScalarProperty Name="CheckDigit" ColumnName="CheckDigit" />
+          <ScalarProperty Name="DFIAccountNumber" ColumnName="DFIAccountNumber" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="IndividualIdentificationNumber" ColumnName="IndividualIdentificationNumber" />
+          <ScalarProperty Name="IndividualName" ColumnName="IndividualName" />
+          <ScalarProperty Name="DiscretionaryData" ColumnName="DiscretionaryData" />
+          <ScalarProperty Name="AddendaRecordIndicator" ColumnName="AddendaRecordIndicator" />
+          <ScalarProperty Name="TraceNumber" ColumnName="TraceNumber" />
+          <ScalarProperty Name="Originator" ColumnName="Originator" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="RawText" ColumnName="RawText" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AchFiles">
+      <EntityTypeMapping TypeName="TPGSysModel.AchFile">
+        <MappingFragment StoreEntitySet="AchFile">
+          <ScalarProperty Name="AchFileId" ColumnName="AchFileId" />
+          <ScalarProperty Name="SourcePath" ColumnName="SourcePath" />
+          <ScalarProperty Name="Core" ColumnName="Core" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="AchFileStatusId" ColumnName="AchFileStatusId" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="StatusDate" ColumnName="StatusDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ACTIVE_MACHINE" ColumnName="ACTIVE_MACHINE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="TPGSysModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="Core" ColumnName="Core" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="CommentKey" ColumnName="CommentKey" />
+          <ScalarProperty Name="RecordNumber" ColumnName="RecordNumber" />
+          <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="IntuitId" ColumnName="IntuitId" />
+          <ScalarProperty Name="CommentTypeId" ColumnName="CommentTypeId" />
+          <ScalarProperty Name="commentSource" ColumnName="commentSource" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="lastupdatedatetime" ColumnName="lastupdatedatetime" />
+          <ScalarProperty Name="LastUpdateTimeStamp" ColumnName="LastUpdateTimeStamp" />
+          <ScalarProperty Name="DBCreateDate" ColumnName="DBCreateDate" />
+          <ScalarProperty Name="DBUpdateDate" ColumnName="DBUpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTLinkings">
+      <EntityTypeMapping TypeName="TPGSysModel.CTLinking">
+        <MappingFragment StoreEntitySet="CTLinking">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Transmitter_ID" ColumnName="Transmitter_ID" />
+          <ScalarProperty Name="Master_ID" ColumnName="Master_ID" />
+          <ScalarProperty Name="CTERO_ID" ColumnName="CTERO_ID" />
+          <ScalarProperty Name="IntuitACKID" ColumnName="IntuitACKID" />
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+          <ScalarProperty Name="TranUse" ColumnName="TranUse" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Unused" ColumnName="Unused" />
+          <ScalarProperty Name="SystemYearImport" ColumnName="SystemYearImport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTMasterInfoes">
+      <EntityTypeMapping TypeName="TPGSysModel.CTMasterInfo">
+        <MappingFragment StoreEntitySet="CTMasterInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MasterEFIN" ColumnName="MasterEFIN" />
+          <ScalarProperty Name="LastEnrollYear" ColumnName="LastEnrollYear" />
+          <ScalarProperty Name="BusinessModel" ColumnName="BusinessModel" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="FaxPhone" ColumnName="FaxPhone" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="SFAccountID" ColumnName="SFAccountID" />
+          <ScalarProperty Name="SFLastIncluded" ColumnName="SFLastIncluded" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTTransmitters">
+      <EntityTypeMapping TypeName="TPGSysModel.CTTransmitter">
+        <MappingFragment StoreEntitySet="CTTransmitter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransmitterEFIN" ColumnName="TransmitterEFIN" />
+          <ScalarProperty Name="LastEnrollYear" ColumnName="LastEnrollYear" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="FaxPhone" ColumnName="FaxPhone" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EROes">
+      <EntityTypeMapping TypeName="TPGSysModel.ERO">
+        <MappingFragment StoreEntitySet="ERO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EFIN" ColumnName="EFIN" />
+          <ScalarProperty Name="LatestEnrollYear" ColumnName="LatestEnrollYear" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EIN" ColumnName="EIN" />
+          <ScalarProperty Name="OwnersSSN" ColumnName="OwnersSSN" />
+          <ScalarProperty Name="OwnersDOB" ColumnName="OwnersDOB" />
+          <ScalarProperty Name="AvailableforReconsideration" ColumnName="AvailableforReconsideration" />
+          <ScalarProperty Name="ProcessInd" ColumnName="ProcessInd" />
+          <ScalarProperty Name="BeingReviewed" ColumnName="BeingReviewed" />
+          <ScalarProperty Name="StationID" ColumnName="StationID" />
+          <ScalarProperty Name="SendToRiskInd" ColumnName="SendToRiskInd" />
+          <ScalarProperty Name="UserReviewedInd" ColumnName="UserReviewedInd" />
+          <ScalarProperty Name="Appealed" ColumnName="Appealed" />
+          <ScalarProperty Name="fRiskHitFound" ColumnName="fRiskHitFound" />
+          <ScalarProperty Name="fRiskHitReviewed" ColumnName="fRiskHitReviewed" />
+          <ScalarProperty Name="ForceOptIn" ColumnName="ForceOptIn" />
+          <ScalarProperty Name="NoCheckPrinting" ColumnName="NoCheckPrinting" />
+          <ScalarProperty Name="DoNotCall" ColumnName="DoNotCall" />
+          <ScalarProperty Name="SARNASSummary" ColumnName="SARNASSummary" />
+          <ScalarProperty Name="SARNAPSummary" ColumnName="SARNAPSummary" />
+          <ScalarProperty Name="SARCVI" ColumnName="SARCVI" />
+          <ScalarProperty Name="sFeeAdvanceReview" ColumnName="sFeeAdvanceReview" />
+          <ScalarProperty Name="CRMCompanyName" ColumnName="CRMCompanyName" />
+          <ScalarProperty Name="CRMPhoneNumber" ColumnName="CRMPhoneNumber" />
+          <ScalarProperty Name="ComplianceEmailAddress" ColumnName="ComplianceEmailAddress" />
+          <ScalarProperty Name="ComplianceESSInd" ColumnName="ComplianceESSInd" />
+          <ScalarProperty Name="SiteGroupCode" ColumnName="SiteGroupCode" />
+          <ScalarProperty Name="ACHHoldFlag" ColumnName="ACHHoldFlag" />
+          <ScalarProperty Name="RejectRecordsInd" ColumnName="RejectRecordsInd" />
+          <ScalarProperty Name="NoAddressUpdateInd" ColumnName="NoAddressUpdateInd" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="IntuitCAN" ColumnName="IntuitCAN" />
+          <ScalarProperty Name="IntuitFirmName" ColumnName="IntuitFirmName" />
+          <ScalarProperty Name="SFAccountID" ColumnName="SFAccountID" />
+          <ScalarProperty Name="SFLastIncluded" ColumnName="SFLastIncluded" />
+          <ScalarProperty Name="Reserved" ColumnName="Reserved" />
+          <ScalarProperty Name="PromoCode" ColumnName="PromoCode" />
+          <ScalarProperty Name="PNACompanyName" ColumnName="PNACompanyName" />
+          <ScalarProperty Name="PNAWebURL" ColumnName="PNAWebURL" />
+          <ScalarProperty Name="PNAPhone" ColumnName="PNAPhone" />
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+          <ScalarProperty Name="RiskLockInd" ColumnName="RiskLockInd" />
+          <ScalarProperty Name="DisbursementPreferenceId" ColumnName="DisbursementPreferenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EROAccountInfoes">
+      <EntityTypeMapping TypeName="TPGSysModel.EROAccountInfo">
+        <MappingFragment StoreEntitySet="EROAccountInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EROLinking_ID" ColumnName="EROLinking_ID" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="NameOnAccount" ColumnName="NameOnAccount" />
+          <ScalarProperty Name="RTN" ColumnName="RTN" />
+          <ScalarProperty Name="DAN" ColumnName="DAN" />
+          <ScalarProperty Name="AcctType" ColumnName="AcctType" />
+          <ScalarProperty Name="AllowAcctChanges" ColumnName="AllowAcctChanges" />
+          <ScalarProperty Name="DisbSum" ColumnName="DisbSum" />
+          <ScalarProperty Name="AdjSum" ColumnName="AdjSum" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="NumberFunded" ColumnName="NumberFunded" />
+          <ScalarProperty Name="SPCVolume" ColumnName="SPCVolume" />
+          <ScalarProperty Name="BPCVolume" ColumnName="BPCVolume" />
+          <ScalarProperty Name="ACHVolume" ColumnName="ACHVolume" />
+          <ScalarProperty Name="TPCardVolume" ColumnName="TPCardVolume" />
+          <ScalarProperty Name="InstantCardVolume" ColumnName="InstantCardVolume" />
+          <ScalarProperty Name="StateVolume" ColumnName="StateVolume" />
+          <ScalarProperty Name="MiscAmountToCollect" ColumnName="MiscAmountToCollect" />
+          <ScalarProperty Name="MiscAmountCollected" ColumnName="MiscAmountCollected" />
+          <ScalarProperty Name="MiscPercentToCollect" ColumnName="MiscPercentToCollect" />
+          <ScalarProperty Name="SoftwareCollectAmountToCollect" ColumnName="SoftwareCollectAmountToCollect" />
+          <ScalarProperty Name="SoftwareCollectAmountCollected" ColumnName="SoftwareCollectAmountCollected" />
+          <ScalarProperty Name="SoftwareCollectPercentToCollect" ColumnName="SoftwareCollectPercentToCollect" />
+          <ScalarProperty Name="FeeAdvanceAmountToCollect" ColumnName="FeeAdvanceAmountToCollect" />
+          <ScalarProperty Name="FeeAdvanceAmountCollected" ColumnName="FeeAdvanceAmountCollected" />
+          <ScalarProperty Name="FeeAdvancePercentToCollect" ColumnName="FeeAdvancePercentToCollect" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="TPGCreditDebtAmountToCollect" ColumnName="TPGCreditDebtAmountToCollect" />
+          <ScalarProperty Name="TPGCreditDebtAmountCollected" ColumnName="TPGCreditDebtAmountCollected" />
+          <ScalarProperty Name="TPGCreditDebtPercentToCollect" ColumnName="TPGCreditDebtPercentToCollect" />
+          <ScalarProperty Name="TransmitterDebtAmountToCollect" ColumnName="TransmitterDebtAmountToCollect" />
+          <ScalarProperty Name="TransmitterDebtAmountCollected" ColumnName="TransmitterDebtAmountCollected" />
+          <ScalarProperty Name="TransmitterDebtPercentToCollect" ColumnName="TransmitterDebtPercentToCollect" />
+          <ScalarProperty Name="EroProductProviderID" ColumnName="EroProductProviderID" />
+          <ScalarProperty Name="B2BInterestAmountToCollect" ColumnName="B2BInterestAmountToCollect" />
+          <ScalarProperty Name="B2BInterestAmountCollected" ColumnName="B2BInterestAmountCollected" />
+          <ScalarProperty Name="B2BInterestPercentToCollect" ColumnName="B2BInterestPercentToCollect" />
+          <ScalarProperty Name="B2BPrincipalAmountToCollect" ColumnName="B2BPrincipalAmountToCollect" />
+          <ScalarProperty Name="B2BPrincipalAmountCollected" ColumnName="B2BPrincipalAmountCollected" />
+          <ScalarProperty Name="B2BPrincipalPercentToCollect" ColumnName="B2BPrincipalPercentToCollect" />
+          <ScalarProperty Name="EROPYAdvanceDebtAmountToCollect" ColumnName="EROPYAdvanceDebtAmountToCollect" />
+          <ScalarProperty Name="EROPYAdvanceDebtAmountCollected" ColumnName="EROPYAdvanceDebtAmountCollected" />
+          <ScalarProperty Name="EROPYAdvanceDebtPercentToCollect" ColumnName="EROPYAdvanceDebtPercentToCollect" />
+          <ScalarProperty Name="PreseasonAdvanceAmountToCollect" ColumnName="PreseasonAdvanceAmountToCollect" />
+          <ScalarProperty Name="PreseasonAdvanceAmountCollected" ColumnName="PreseasonAdvanceAmountCollected" />
+          <ScalarProperty Name="PreseasonAdvanceAmountPercentToCollect" ColumnName="PreseasonAdvanceAmountPercentToCollect" />
+          <ScalarProperty Name="SPAAmountToCollect" ColumnName="SPAAmountToCollect" />
+          <ScalarProperty Name="SPAAmountCollected" ColumnName="SPAAmountCollected" />
+          <ScalarProperty Name="SPAAmountPercentToCollect" ColumnName="SPAAmountPercentToCollect" />
+          <ScalarProperty Name="TPPreSeasonDebtAmountToCollect" ColumnName="TPPreSeasonDebtAmountToCollect" />
+          <ScalarProperty Name="TPPreSeasonDebtAmountCollected" ColumnName="TPPreSeasonDebtAmountCollected" />
+          <ScalarProperty Name="TPPreSeasonDebtPercentToCollect" ColumnName="TPPreSeasonDebtPercentToCollect" />
+          <ScalarProperty Name="BankChangeInd" ColumnName="BankChangeInd" />
+          <ScalarProperty Name="UnfundedTaxpayerCreditDebtAmountToCollect" ColumnName="UnfundedTaxpayerCreditDebtAmountToCollect" />
+          <ScalarProperty Name="UnfundedTaxpayerCreditDebtAmountCollected" ColumnName="UnfundedTaxpayerCreditDebtAmountCollected" />
+          <ScalarProperty Name="UnfundedTaxpayerCreditDebtPercentToCollect" ColumnName="UnfundedTaxpayerCreditDebtPercentToCollect" />
+          <ScalarProperty Name="PreseasonAdvanceCommitmentFeeAmountToCollect" ColumnName="PreseasonAdvanceCommitmentFeeAmountToCollect" />
+          <ScalarProperty Name="PreseasonAdvanceCommitmentFeeAmountCollected" ColumnName="PreseasonAdvanceCommitmentFeeAmountCollected" />
+          <ScalarProperty Name="PreseasonAdvanceCommitmentFeePercentToCollect" ColumnName="PreseasonAdvanceCommitmentFeePercentToCollect" />
+          <ScalarProperty Name="FeeAdvanceCommitmentFeeAmountToCollect" ColumnName="FeeAdvanceCommitmentFeeAmountToCollect" />
+          <ScalarProperty Name="FeeAdvanceCommitmentFeeAmountCollected" ColumnName="FeeAdvanceCommitmentFeeAmountCollected" />
+          <ScalarProperty Name="FeeAdvanceCommitmentFeePercentToCollect" ColumnName="FeeAdvanceCommitmentFeePercentToCollect" />
+          <ScalarProperty Name="EnrollmentEntityId" ColumnName="EnrollmentEntityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EROLinkings">
+      <EntityTypeMapping TypeName="TPGSysModel.EROLinking">
+        <MappingFragment StoreEntitySet="EROLinking">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Transmitter_ID" ColumnName="Transmitter_ID" />
+          <ScalarProperty Name="Master_ID" ColumnName="Master_ID" />
+          <ScalarProperty Name="ERO_ID" ColumnName="ERO_ID" />
+          <ScalarProperty Name="IntuitACKID" ColumnName="IntuitACKID" />
+          <ScalarProperty Name="JHOfficeID" ColumnName="JHOfficeID" />
+          <ScalarProperty Name="TranUse" ColumnName="TranUse" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="Unused" ColumnName="Unused" />
+          <ScalarProperty Name="SFAccountID" ColumnName="SFAccountID" />
+          <ScalarProperty Name="SFLastIncluded" ColumnName="SFLastIncluded" />
+          <ScalarProperty Name="TransmitterImportDate" ColumnName="TransmitterImportDate" />
+          <ScalarProperty Name="SystemYearImport" ColumnName="SystemYearImport" />
+          <ScalarProperty Name="RemoteChkInd" ColumnName="RemoteChkInd" />
+          <ScalarProperty Name="TransmitterImportDate16" ColumnName="TransmitterImportDate16" />
+          <ScalarProperty Name="SystemYearImport16" ColumnName="SystemYearImport16" />
+          <ScalarProperty Name="TransmitterImportDate17" ColumnName="TransmitterImportDate17" />
+          <ScalarProperty Name="SystemYearImport17" ColumnName="SystemYearImport17" />
+          <ScalarProperty Name="TransmitterImportDate18" ColumnName="TransmitterImportDate18" />
+          <ScalarProperty Name="SystemYearImport18" ColumnName="SystemYearImport18" />
+          <ScalarProperty Name="TransmitterImportDate19" ColumnName="TransmitterImportDate19" />
+          <ScalarProperty Name="SystemYearImport19" ColumnName="SystemYearImport19" />
+          <ScalarProperty Name="SubServiceBureauProviderId" ColumnName="SubServiceBureauProviderId" />
+          <ScalarProperty Name="TransmitterImportDate20" ColumnName="TransmitterImportDate20" />
+          <ScalarProperty Name="SystemYearImport20" ColumnName="SystemYearImport20" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeAdvances">
+      <EntityTypeMapping TypeName="TPGSysModel.FeeAdvance">
+        <MappingFragment StoreEntitySet="FeeAdvance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EROLinking_ID" ColumnName="EROLinking_ID" />
+          <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+          <ScalarProperty Name="AdvancingDate" ColumnName="AdvancingDate" />
+          <ScalarProperty Name="GrossFeeAmount" ColumnName="GrossFeeAmount" />
+          <ScalarProperty Name="NetFeeAmount" ColumnName="NetFeeAmount" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="AdvType" ColumnName="AdvType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeAdvanceDetails">
+      <EntityTypeMapping TypeName="TPGSysModel.FeeAdvanceDetail">
+        <MappingFragment StoreEntitySet="FeeAdvanceDetail">
+          <ScalarProperty Name="FeeAdvanceDetailId" ColumnName="FeeAdvanceDetailId" />
+          <ScalarProperty Name="FeeAdvanceId" ColumnName="FeeAdvanceId" />
+          <ScalarProperty Name="TaxpayerId" ColumnName="TaxpayerId" />
+          <ScalarProperty Name="PrepFees" ColumnName="PrepFees" />
+          <ScalarProperty Name="PrepFeesAdvanced" ColumnName="PrepFeesAdvanced" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Lastupdate" ColumnName="Lastupdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeSplits">
+      <EntityTypeMapping TypeName="TPGSysModel.FeeSplit">
+        <MappingFragment StoreEntitySet="FeeSplit">
+          <ScalarProperty Name="FeeSplitId" ColumnName="FeeSplitId" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="EroId" ColumnName="EroId" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="SplitType" ColumnName="SplitType" />
+          <ScalarProperty Name="SplitAmount" ColumnName="SplitAmount" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterFeeAdvDetails">
+      <EntityTypeMapping TypeName="TPGSysModel.MasterFeeAdvDetail">
+        <MappingFragment StoreEntitySet="MasterFeeAdvDetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MasterId" ColumnName="MasterId" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="CapAmount" ColumnName="CapAmount" />
+          <ScalarProperty Name="ParticipantStatus" ColumnName="ParticipantStatus" />
+          <ScalarProperty Name="CutOff" ColumnName="CutOff" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="ParticipantStatusEarly30" ColumnName="ParticipantStatusEarly30" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterInfoes">
+      <EntityTypeMapping TypeName="TPGSysModel.MasterInfo">
+        <MappingFragment StoreEntitySet="MasterInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MasterEFIN" ColumnName="MasterEFIN" />
+          <ScalarProperty Name="LastEnrollYear" ColumnName="LastEnrollYear" />
+          <ScalarProperty Name="BusinessModel" ColumnName="BusinessModel" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="ContactFirstName" ColumnName="ContactFirstName" />
+          <ScalarProperty Name="ContactLastName" ColumnName="ContactLastName" />
+          <ScalarProperty Name="FaxPhone" ColumnName="FaxPhone" />
+          <ScalarProperty Name="OfficePhone" ColumnName="OfficePhone" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="RecordCreate" ColumnName="RecordCreate" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="SFAccountID" ColumnName="SFAccountID" />
+          <ScalarProperty Name="SFLastIncluded" ColumnName="SFLastIncluded" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Funded" ColumnName="Funded" />
+          <ScalarProperty Name="TSAInd" ColumnName="TSAInd" />
+          <ScalarProperty Name="NoShip" ColumnName="NoShip" />
+          <ScalarProperty Name="FeeAdvOptIn" ColumnName="FeeAdvOptIn" />
+          <ScalarProperty Name="FeeAdvSpecInd" ColumnName="FeeAdvSpecInd" />
+          <ScalarProperty Name="FeeAdvCap" ColumnName="FeeAdvCap" />
+          <ScalarProperty Name="FeeAdvOptInDate" ColumnName="FeeAdvOptInDate" />
+          <ScalarProperty Name="FeeAdvOptOutDate" ColumnName="FeeAdvOptOutDate" />
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PendingFees">
+      <EntityTypeMapping TypeName="TPGSysModel.PendingFee">
+        <MappingFragment StoreEntitySet="PendingFee">
+          <ScalarProperty Name="PendingFeeId" ColumnName="PendingFeeId" />
+          <ScalarProperty Name="PendingFeeSourceId" ColumnName="PendingFeeSourceId" />
+          <ScalarProperty Name="AchEntryId" ColumnName="AchEntryId" />
+          <ScalarProperty Name="Sadjkey" ColumnName="Sadjkey" />
+          <ScalarProperty Name="Srecnum" ColumnName="Srecnum" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="TraceNumber" ColumnName="TraceNumber" />
+          <ScalarProperty Name="FeeDisbursementInd" ColumnName="FeeDisbursementInd" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PendingFeeDetails">
+      <EntityTypeMapping TypeName="TPGSysModel.PendingFeeDetail">
+        <MappingFragment StoreEntitySet="PendingFeeDetail">
+          <ScalarProperty Name="PendingFeeDetailId" ColumnName="PendingFeeDetailId" />
+          <ScalarProperty Name="PendingFeeId" ColumnName="PendingFeeId" />
+          <ScalarProperty Name="PendingFeeTypeId" ColumnName="PendingFeeTypeId" />
+          <ScalarProperty Name="FundingSourceId" ColumnName="FundingSourceId" />
+          <ScalarProperty Name="FeeAmountPending" ColumnName="FeeAmountPending" />
+          <ScalarProperty Name="FeeAmountPaid" ColumnName="FeeAmountPaid" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PendingFeeSources">
+      <EntityTypeMapping TypeName="TPGSysModel.PendingFeeSource">
+        <MappingFragment StoreEntitySet="PendingFeeSource">
+          <ScalarProperty Name="PendingFeeSourceId" ColumnName="PendingFeeSourceId" />
+          <ScalarProperty Name="SystemYear" ColumnName="SystemYear" />
+          <ScalarProperty Name="Core" ColumnName="Core" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="TransmitterEfin" ColumnName="TransmitterEfin" />
+          <ScalarProperty Name="MasterEfin" ColumnName="MasterEfin" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PendingFeeTypes">
+      <EntityTypeMapping TypeName="TPGSysModel.PendingFeeType">
+        <MappingFragment StoreEntitySet="PendingFeeType">
+          <ScalarProperty Name="PendingFeeTypeId" ColumnName="PendingFeeTypeId" />
+          <ScalarProperty Name="CoreFeeName" ColumnName="CoreFeeName" />
+          <ScalarProperty Name="BusinessFeeName" ColumnName="BusinessFeeName" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

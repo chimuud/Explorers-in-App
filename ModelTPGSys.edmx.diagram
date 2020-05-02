@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="edb36dfeb8d0455b91993bdf2552d974" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="TPGSysModel.AchEntry" Width="1.5" PointX="12" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.AchFile" Width="1.5" PointX="9.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.Comment" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.CTLinking" Width="1.5" PointX="10" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.CTMasterInfo" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.CTTransmitter" Width="1.5" PointX="7.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.ERO" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.EROAccountInfo" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.EROLinking" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.FeeAdvance" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.FeeAdvanceDetail" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.FeeSplit" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.MasterFeeAdvDetail" Width="1.5" PointX="3" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.MasterInfo" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.PendingFee" Width="1.5" PointX="12" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.PendingFeeDetail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.PendingFeeSource" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TPGSysModel.PendingFeeType" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TPGSysModel.FK_AchEntry_AchFile" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_CTEROLINKING_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_CTEROLINKING_TRANSMITTER" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_EROLINKING_ERO_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_FeeSplit_ERO" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_EROACCOUNTINFO_EROLINKING_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_EROLINKING_Master_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_FEEADVANCE_EROLinking_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_FeeAdvanceDetail_FeeAdvance_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_FeeSplit_MasterInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK__MasterFee__Maste__36FC065D" ManuallyRouted="false" />
+        <AssociationConnector Association="TPGSysModel.FK_PendingFee_PendingFeeSourceId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
